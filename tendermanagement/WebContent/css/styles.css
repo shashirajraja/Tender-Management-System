@@ -1,0 +1,103 @@
+body{
+		background-color:auto;
+
+}
+#header-nav{
+	background-color:#9999ff;
+	border-radius: 0px;
+	border:0px;
+	margin-bottom:0px;
+	padding-top:0px;
+	min-height:70px;
+
+}
+.navbar-brand a h1:hover{
+	text-decoration: none;
+	color:green;
+}
+.navbar-brand h1{
+	font-family: 'Eater', cursive;
+	color: white;
+	font-size: 2em;
+	position:absolute;
+	top:-12px;
+	text-shadow: 1px 1px 1px #222;
+	margin-bottom: 10px;
+	
+  }
+  #header-nav .container{
+  	
+  }
+#nav-list{
+	
+	color:white;
+	font-size:1.6em;
+	font-family: cursive;
+	background-color: green;
+	margin-bottom: 0px;
+}
+#nav-list li{
+	margin-top:5px;
+}
+#nav-list a span{
+	margin-bottom:5px;
+}
+#nav-list a{
+	color:white;
+	text-align: center;
+}
+#nav-list a:hover{
+	background-color:white;
+	color:green;
+}
+
+#content1{
+	background-color: #66ffb2;
+	font-weight: bold;
+	font-style: italic;
+	font-size:16px;
+	width:auto;
+	padding:10px;
+	padding-top:0px;
+}
+#content2{
+	background-color: #e5ccff;
+	font-weight: bold;
+	font-style: italic;
+	font-size:16px;
+	width:auto;
+	padding:10px;
+	padding-top:0px;
+}
+#content3{
+	background-color: #ffcce5;
+	font-weight: bold;
+	font-style: italic;
+	font-size:16px;
+	width:auto;
+	padding:10px;
+	padding-top:0px;
+}
+#ad{
+	font-style: italic;
+	font-size:18px;
+	font-weight: bold;
+	text-align: center;
+}
+
+#title{
+	font-style: 'lobster' normal;
+	font-weight: bold;
+	font-size:2.5em;
+}
+section h3{
+	text-align:center;
+	background-color:red;
+	color:white;
+	font-size:30px;
+	font-weight: bold;
+	clear:both;
+	margin-left:-10px;
+	margin-right:-10px;
+
+}

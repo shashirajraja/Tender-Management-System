@@ -1,0 +1,230 @@
+body{
+	/*background-color: #FFE5CC;*/
+}
+
+.footer{
+	position: 
+	margin-bottom: 0px;
+}
+.navbar-header img{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-right: 10px;
+}
+.navbar-brand h1{
+	font-size: 2em;
+	margin-top: 2px;
+	color:#ffffff;
+    font-family: 'Black Ops One';
+}
+
+.secondnav{
+	margin-top:-19.1px;
+}
+.secondcont{
+	margin-left:13%;
+	font-size:18px;
+}
+.menusize{
+	font-size:20px;
+	margin-top: 20px;
+}
+#nav-list {
+  margin-top: 0px;
+  font-weight: bold;
+  color:green;
+  font-size: 15px;
+  margin-left:0;
+}
+#nav-list a {
+  color: #951C49;
+}
+.dropdown-menu li a{
+	font-weight: bold;
+	font-size:14px;
+	color:blue;
+}
+
+#nav-list a:hover {
+  background-color:red;
+  color:white;
+  font-weight: bold;
+  padding:auto;
+  border-radius: 8px;
+  margin-top:0px;
+  margin-bottom: 0px;
+}
+#nav-list a:active {
+  background-color:green;
+  color:white;
+  font-weight: bold;
+  padding:auto;
+  border-radius: 8px;
+  margin-top:0px;
+  margin-bottom: 0px;
+}
+#na
+#nav-list a span {
+  font-size: 1.0em;
+}
+.back{
+	margin-top:-20px;
+	max-height:580px;
+	width:1600px;
+}
+/** Extra smalll devices (portrait phones, less than 576px)**/
+@media (max-width: 575.99px) 
+{
+	.navbar-brand h1{
+		font-size:0.9em;
+		margin-top: -5px;
+		margin-bottom: -15px;
+		color:#ffffff;
+	}
+	.navbar-header img{
+		margin-top: 10px;
+		margin-right: 1px;
+		margin-left:2px;
+		width:35px;
+		height: 35px;
+	}
+	.navbar-brand{
+		margin-bottom:-23px;
+	}
+	.navbar-header p{
+		margin-top:30px;
+		margin-left:16%;
+		font-size:1.0em;
+		margin-bottom:-10px;
+		color:#ccccff;
+	}
+	.menusize{
+		font-size:14px;
+		clear:right;
+		margin-top:-20px;
+		float:right;
+		margin-bottom: 0px;
+	}
+	.menubar{
+		margin-bottom: 13px;
+
+	}
+}
+
+/** Small devices (landscape phones, 576px and up)  **/
+@media (min-width: 576px) and (max-width: 767.99px)
+{
+	.navbar-brand h1{
+		font-size: 20px;
+		margin-top: 2px;
+		color:#ffffff;
+	    font-family: 'Black Ops One';
+	}
+	.navbar-header img{
+		margin-top: 10px;
+		margin-bottom: 10px;
+		margin-right: 2px;
+		margin-left:4px;
+		width:60px;
+		height: 60px;
+	}
+	.navbar-header p{
+		margin-top:50px;
+		margin-left:85px;
+		font-size:1.0em;
+		color:#ccccff;
+	}
+	.menusize{
+		margin-top:-37px;
+	}
+	.menubar{
+		margin-bottom: 13px;
+	}
+
+}
+
+/** Medium devices (tablets, 768px and up) **/
+@media (min-width: 768px) and (max-width: 991.99px) 
+{
+	.navbar-brand h1{
+		font-size: 30px;
+		margin-top: 2px;
+		color:#ffffff;
+	    font-family: 'Black Ops One';
+	}
+	.navbar-header img{
+		margin-top: 10px;
+		margin-bottom: 10px;
+		margin-right: 10px;
+		width:70px;
+		height: 70px;
+	}
+	.navbar-header p{
+		margin-top:54px;
+		margin-left:85px;
+		font-size:1.2em;
+		color:#ccccff;
+	}
+	.menusize{
+		margin-top: -40px;
+	}
+	.menubar{
+	min-height: 12px;
+}
+}
+
+/** Large devices (desktops, 992px and up) **/
+@media (min-width: 992px) and (max-width: 1199.99px)
+{
+	.navbar-brand h1{
+		font-size: 2em;
+		margin-top: 2px;
+		color:#ffffff;
+	    font-family: 'Black Ops One';
+	}
+	.navbar-header p{
+		margin-top:58px;
+		margin-left:85px;
+		font-size:1.5em;
+		color:#ccccff;
+
+	}
+	.navbar-header img{
+		margin-top: 10px;
+		margin-bottom: 10px;
+		margin-right: 10px;
+		width:80px;
+		height: 80px;
+	}
+	.menubar{
+	min-height: 80px;
+}
+}
+
+/** Extra large devices (large desktops, 1200px and up) **/
+@media (min-width: 1200px)
+{
+	.navbar-brand h1{
+		font-size: 2em;
+		margin-top: 4px;
+		color:#ffffff;
+	    font-family: 'Black Ops One';
+	}
+	.navbar-header p{
+		margin-top:60px;
+		margin-left:95px;
+		font-size:1.5em;
+		color:#ccccff;
+
+	}
+	.navbar-header img{
+		margin-top: 10px;
+		margin-bottom: 10px;
+		margin-right: 10px;
+		width:85px;
+		height: 85px;
+	}
+	.menubar{
+	min-height: 72px;
+}
+}
