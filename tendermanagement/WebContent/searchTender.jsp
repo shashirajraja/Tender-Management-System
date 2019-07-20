@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
- <%@page import="java.sql.*, com.hit.utility.DBUtil, javax.servlet.annotation.WebServlet" errorPage="errorpage.jsp"%>
+ <%@page import="java.sql.*,java.lang.Integer,java.lang.String, com.hit.beans.TenderBean,com.hit.utility.DBUtil,java.util.List,com.hit.dao.TenderDaoImpl,com.hit.dao.TenderDao, javax.servlet.annotation.WebServlet" errorPage="errorpage.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
   <head>
@@ -20,21 +20,32 @@
     <link href="css/bootstrap-dropdownhover.min.css">
     <link rel="stylesheet" href="css/style2.css">
     <style>
-	.tab{
-	border-radius:10px;
-		border:1px black solid;
-		
-		background-color: #FFE5CC;
-		margin-left: 25%;
-		width:450px;
-		color:green;
-		font-weight: bold;
-		font-style:normal;
+    th,tr{
+    	height:50px;
+    	border:2px black solid;
+    	
+    }
+   
+    td{
+    	min-width:145px;
+    	border: 2px dashed black;
+    }
+    table{
+    	text-align:center;
+    	border-radius:10px;
+		border:1px red solid;
 		text-align:center;
-		font-size: 20px;
-		margin-bottom:10px;
+		background-color: cyan;
+		margin:20px;
+		color:blue;
+		font-style:normal;
+		font-size: 15px;
 		padding:20px;
-	}
+		cellpadding:10;
+		cellspacing:10;
+    }
+    
+    
     </style>
   </head>
 <body>
@@ -61,66 +72,44 @@
         </div>  <!-- End of col-md-3-->
       </div> <!-- End of notice class-->
       
+      
       <!-- Next part of same container-fluid in which galary or other information will be shown-->
       
-      <%-- <jsp:include page="login.jsp"></jsp:include> --%>
-      
+          
    <div class="col-md-8">
-    <div class="marquee" style="border:2px black hidden; background-color:white">
+    <!-- <div class="marquee" style="border:2px black hidden; background-color:white">
         <h4 style="background-color:black; margin-top:-1.8px; margin-bottom:1px;padding: 5px; text-align: center;color:red;font-weight:bold">
-        &nbsp; <span id="pagetitle">Tender Creation</span></h4><!-- pagetitle id is given here -->
-        <div  class="marquee-content" style="align:center; padding-top:5px;min-height:750px;background-color:cyan">
-      
-      <table class="tab hd " style="color:blue;margin-bottom:50px;background-color:white; ">
-	
-			<tr>
-				<td id="show"></td>
-			</tr>
-	</table>
-      
-      
-      <table class="tab hd brown">
-		<tr>
-			<td style="color:brown">Add new tender</td>
-		</tr>
-	</table>
-
-	<table class="tab hd blue" border="0px" cellpadding="10" cellspacing="10">
-		
-		<tr>
-			<td>
-				<form action="CreateTenderSrv" method="post">
-				<br>
-					Tender Name  : <input type="text" name="tname" required="required"><br/><br/>
-					Tender type  : <select name="ttype" required="required" >
-										<!-- <option value="none" selected disabled hidden> 
-          									Select an Option 
-     									 	</option>  -->
-										  <option  value="construction">Construction</option>
-										  <option value="research">Research</option>
-										  <option  value="maintainence">Maintainence</option>
-										  <option value="buisness">Buisness-implementation</option>
-										  <option value="software">Software</option>
-										  <option  value="others">Others</option>
-										 
-										</select><br/><br/>
-					Base Price    : <input type="number" name="tprice" required="required"><br/><br/>
-					Strict Deadline    : <input type="date" name="tdeadline" required="required"><br/><br/>
-					Location     : <input type="text" name="tloc" required="required"><br/><br/>
-					Descripton   : <input type="text" name="tdesc" required="required" style=" height:300px; text-align:left"><br/><br/>
-					
-					<input type="submit" value="Register" name="user">
-					
-				</form>
-			</td>
-			
-		</tr>  
-	</table>
-	
-      </div>
+        &nbsp; <span id="pagetitle">Admin Account</span></h4>pagetitle id is given here
+        <div class="marquee-content" style="align:center; padding-top:200px;min-height:750px;background-color:cyan">
+     		 -->
+     <table style="background-color:white">		
+     		<tr style="color:red; font-size:22px; font-weight:bold;background-color:green"> <td>Tender Id</td> <td>Tender Name </td> <td> Tender Type </td> <td>Tender Price</td> <td>Location</td> <td>Deadline</td> <td>Description</td> </tr>
+     		<%
+     			TenderDao dao = new TenderDaoImpl();
+     			List<TenderBean> tenderList = dao.getTenderDetails(request.getParameter("tid"));
+     			for(TenderBean tender : tenderList){
+     				String tid = tender.getId();
+     				String tname = tender.getName();
+     				String ttype = tender.getType();
+     				int tprice = tender.getPrice();
+     				String tloc = tender.getLocation();
+     				java.util.Date udeadline = tender.getDeadline();
+     				java.sql.Date tdeadline = new java.sql.Date(udeadline.getTime()); 
+     				String tdesc = tender.getDesc();
+     				
+     				%>
+     				
+     
+     		<tr> <td><%=tid %></td> <td><%=tname %></td> <td><%=ttype %></td> <td><%=tprice %></td> <td><%=tloc %></td> <td><%=tdeadline %></td> <td><%=tdesc %></td> </tr>
+     		
+     		
+     
+ <% } %>
+    </table>	
+     		
+      <!-- </div>
+     </div> -->
      </div>
-     </div>
-      
       
     </div> <!-- End of container-fluid-->
 	

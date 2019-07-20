@@ -12,7 +12,7 @@
       <div id="collapsable-nav" class="collapse navbar-collapse hidden-lg hidden-md">
         <ul id="nav-list" class="nav navbar-nav navbar-left pull-left">
             <li id="navHomeButton">
-              <a href="index.html">
+              <a href="index.jsp">
                 <span class="glyphicon glyphicon-home"></span> Home</a> <!--Home button is here -->
             </li>
             <li class="dropdown">
@@ -31,7 +31,7 @@
                   Tenders
                     <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">View all Tenders</a></li>
+                  <li><a href="vendorViewTender.jsp">View all Tenders</a></li>
                   <li><a href="#">Apply for a Tender</a></li>
                   <li><a href="#">Bid Approval Status</a></li>
                   <li class="dropdown">
@@ -57,12 +57,12 @@
               </li>
            <li><a href="#"> Account </a></li>
            <li>
-              <a href="LogoutSrv"> Logout </a>
+              <a href="index.jsp"> Logout </a>
             </li>
             
             <li>
               <!-- Form for searching any tenders or items-->
-              <form class="navbar-form hidden-xs" action="/action_page.php"  >
+              <form class="navbar-form hidden-xs" action="vendorSearchTender.jsp"  >
                 <div class="form-group" >
                   <input type="text" class="form-control" placeholder="Find Tenders by name" style="margin-left: 150px;" required>
                 </div>

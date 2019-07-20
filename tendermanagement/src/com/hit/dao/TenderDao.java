@@ -6,7 +6,7 @@ import com.hit.beans.TenderBean;
 
 public interface TenderDao {
 	
-	public TenderBean getTenderDetails(String id);
+	public List<TenderBean> getTenderDetails(String id);
 	
 	public List<TenderBean> getAllTenders();
 	
@@ -14,7 +14,7 @@ public interface TenderDao {
 	
 	public boolean removeTender(String tid);
 	
-	public boolean updateTender(String tid);
+	public String updateTender(TenderBean tender);
 	
 	public boolean acceptBid(String applicationId);
 	

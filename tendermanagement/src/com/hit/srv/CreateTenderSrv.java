@@ -50,9 +50,11 @@ public class CreateTenderSrv extends HttpServlet {
 		String stdeadline= request.getParameter("tdeadline").trim();
 		String tloc= request.getParameter("tloc").trim();
 		int tprice=Integer.parseInt(stprice);
+		System.out.print(tid+" "+tname+" "+ttype+" "+tprice+" "+tdesc+" "+stdeadline+" "+tloc+" "+"completed ");
 		
-		
-		TenderBean tender = new TenderBean(tid,tname,ttype,tprice,tdesc,stdeadline,tloc);
+		TenderBean tender = new //TenderBean(id, name, type, price, desc, stdeadline, location)
+				
+				 TenderBean(tid,tname,ttype,tprice,tdesc,stdeadline,tloc);
 		
 		TenderDao dao = new TenderDaoImpl();
 		

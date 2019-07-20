@@ -54,7 +54,7 @@
                     <br/>
                     <span style="font-size: 1.7em; color:red">Ms. Ahana Guchait</span>
 <!--                     <p><span>Web Designer</span></p>
- -->                    <p>16 / CSE / xx</p>
+ -->                    <p>16 / CSE / 135</p>
                     </div>
                   </div>
                 </div>
@@ -62,14 +62,14 @@
               <!-- Developer 3 Ms. Deep Shikha -->
               <div class="col-md-2 col-xs-12 col-sm-2">
                 <div class="col-md-5 col-xs-5 col-sm-5">
-                  <img src="images/nun.jpg" class="img-responsive img-circle pull-right" style="width:105px;height:130px;"alt="Deep Shikha Site Developer" title="Mr. Deep shikha">
+                  <img src="images/deepshikha.png" class="img-responsive img-circle pull-right" style="width:105px;height:130px;"alt="Deep Shikha Site Developer" title="Mr. Deep shikha">
                 </div>
                 <div class="col-md-7 col-xs-7 col-sm-7">
                   <div class="developers pull-left" style="font-weight: bold; color:white;text-align: center;">
                   <br/>
                   <span style="font-size: 1.7em; color:red">Ms. Deep Shikha</span>
 <!--                   <p><span>Web Designer</span></p>
- -->                  <p>16 / IT / xx</p>
+ -->                  <p>16 / IT / 47</p>
                   </div>
                 </div>
               </div>
@@ -82,9 +82,9 @@
                   <div class="col-md-7 col-xs-7 col-sm-7">
                     <div class="developers pull-left" style="font-weight: bold; color:white;text-align: center;">
                     <br/>
-                    <span style="font-size: 1.7em; color:red">Ms. Manjusa Barman</span>
+                    <span style="font-size: 1.7em; color:red">Ms. Manjusha Barman</span>
 <!--                     <p><span>Web Designer</span></p>
- -->                    <p>16 / CSE / xx</p>
+ -->                    <p>16 / CSE / 89</p>
                     </div>
                   </div>
                 </div>
