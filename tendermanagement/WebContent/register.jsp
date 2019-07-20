@@ -19,13 +19,30 @@
     <link href="https://fonts.googleapis.com/css?family=Black+Ops+One" rel="stylesheet">
     <link href="css/bootstrap-dropdownhover.min.css">
     <link rel="stylesheet" href="css/style2.css">
+    <style>
+	.tab{
+	border-radius:10px;
+		border:1px black solid;
+		
+		background-color: #FFE5CC;
+		margin-left: 25%;
+		width:450px;
+		color:green;
+		font-weight: bold;
+		font-style:normal;
+		text-align:center;
+		font-size: 20px;
+		margin-bottom:10px;
+		padding:20px;
+	}
+    </style>
   </head>
 <body>
 	<!-- Including the header of the page  -->
 	
 	<jsp:include page="header.jsp"></jsp:include>
 	
-	<jsp:include page="adminMenu.jsp"></jsp:include>
+	<jsp:include page="vendorMenu.jsp"></jsp:include>
 	
 	<div class="clearfix hidden-sm hidden-xs" style="color:white;background-color: green; margin-top:-15px; margin-bottom: 12px"><marquee>Welcome to Tender Management Site</marquee>
  </div> <!--A green color line between header and body part-->
@@ -44,24 +61,54 @@
         </div>  <!-- End of col-md-3-->
       </div> <!-- End of notice class-->
       
-      
       <!-- Next part of same container-fluid in which galary or other information will be shown-->
       
-          
+      <%-- <jsp:include page="login.jsp"></jsp:include> --%>
+      
    <div class="col-md-8">
     <div class="marquee" style="border:2px black hidden; background-color:white">
         <h4 style="background-color:black; margin-top:-1.8px; margin-bottom:1px;padding: 5px; text-align: center;color:red;font-weight:bold">
-        &nbsp; <span id="pagetitle">Admin Account</span></h4><!-- pagetitle id is given here -->
-        <div class="marquee-content" style="align:center; padding-top:200px;min-height:750px;background-color:cyan">
-     		<h1> Admin Page</h1>
+        &nbsp; <span id="pagetitle">Vendor Registration</span></h4><!-- pagetitle id is given here -->
+        <div  class="marquee-content" style="align:center; padding-top:5px;min-height:750px;background-color:cyan">
+      
+      <table class="tab hd " style="color:blue;margin-bottom:50px;background-color:white; ">
+	
+			<tr>
+				<td id="show"></td>
+			</tr>
+	</table>
+      
+      
+      <table class="tab hd brown">
+		<tr>
+			<td style="color:brown">Register New Vendor</td>
+		</tr>
+	</table>
+
+	<table class="tab hd blue" border="0px" cellpadding="10" cellspacing="10">
+		
+		<tr>
+			<td>
+				<form action="RegisterSrv" method="post">
+				<br>
+					Vendor Name: <input type="text" name="vname" required="required"><br/><br/>
+					Email Id  : <input type="email" name="vemail" required="required"><br/><br/>
+					Mobile No. : <input type="phone" name="vmob" required="required"><br/><br/>
+					Address: <input type="text" name="vaddr" required="required"><br/><br/>
+					Company Name: <input type="text" name="cname" required="required"><br/><br/>
+					Password: <input type="password" name="vpass" required="required"><br/><br/>
+					<input type="submit" value="Register" name="user">
+					
+				</form>
+			</td>
+			
+		</tr>  
+	</table>
+	
       </div>
      </div>
      </div>
       
-      
-      
-      
-     <a><h1></h1></a>
       
     </div> <!-- End of container-fluid-->
 	

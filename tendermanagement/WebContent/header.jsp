@@ -32,7 +32,7 @@
             </div>
          
             <ul class="nav navbar-nav navbar-right menusize pull-right">   <!-- Login or signup in right top corner-->
-              <li><a href="signup"><span class="glyphicon glyphicon-user "></span> Sign Up</a></li>
+              <li><a href="register.jsp"><span class="glyphicon glyphicon-user "></span> Sign Up</a></li>
               <li><a href="login.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
             </ul>
             <!--Coding for Small Devices navigation-->
@@ -59,8 +59,6 @@
   <script src="js/ajax-utils.js"></script>
   <script src="js/script.js"></script>
   <script src="js/bootstrap-dropdownhover.min.js"></script>
-  <script>document.getElementById("login").innerHTML=" Login";</script>
-  <script>document.getElementById("signup").innerHTML=" SignUp";
   </script>
 </body>
 </html>

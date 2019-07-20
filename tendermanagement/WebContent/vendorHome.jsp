@@ -25,7 +25,7 @@
 	
 	<jsp:include page="header.jsp"></jsp:include>
 	
-	<jsp:include page="adminMenu.jsp"></jsp:include>
+	<jsp:include page="vendorMenu.jsp"></jsp:include>
 	
 	<div class="clearfix hidden-sm hidden-xs" style="color:white;background-color: green; margin-top:-15px; margin-bottom: 12px"><marquee>Welcome to Tender Management Site</marquee>
  </div> <!--A green color line between header and body part-->
@@ -51,9 +51,9 @@
    <div class="col-md-8">
     <div class="marquee" style="border:2px black hidden; background-color:white">
         <h4 style="background-color:black; margin-top:-1.8px; margin-bottom:1px;padding: 5px; text-align: center;color:red;font-weight:bold">
-        &nbsp; <span id="pagetitle">Admin Account</span></h4><!-- pagetitle id is given here -->
+        &nbsp; <span id="pagetitle">VENDOR ACCOUNT</span></h4><!-- pagetitle id is given here -->
         <div class="marquee-content" style="align:center; padding-top:200px;min-height:750px;background-color:cyan">
-     		<h1> Admin Page</h1>
+     		<h1>VENDOR PAGE</h1>
       </div>
      </div>
      </div>

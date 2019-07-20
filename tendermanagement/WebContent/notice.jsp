@@ -26,6 +26,7 @@
                 	while(rs.next()){
                 		noticeTitle = rs.getString("title");
                 		noticeInfo = rs.getString("info");
+                		//System.out.println(noticeTitle+" "+noticeInfo);
                 		%>
                 <p style="font-weight: bold;"><span class="glyphicon glyphicon-hand-right" style="color: #3743fa;"> 
 	               <strong style="color:red"><%= noticeTitle %></strong><br><br><%= noticeInfo %>

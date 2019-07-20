@@ -34,11 +34,15 @@ public class DBUtil {
 				conn = DriverManager.getConnection(cs,username,password);
 				
 			}
-		} catch (SQLException e) {
+		}
+		
+		catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
+		
+	
 		return conn;
 	}
 }

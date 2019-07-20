@@ -70,6 +70,16 @@
         <h4 style="background-color:black; margin-top:-1.8px; margin-bottom:1px;padding: 5px; text-align: center;color:red;font-weight:bold">
         &nbsp; <span id="pagetitle">Account Login</span></h4><!-- pagetitle id is given here -->
         <div class="marquee-content" style="align:center; padding-top:200px;min-height:750px;background-color:cyan">
+      
+      <table class="tab hd " style="color:blue;margin-bottom:50px;background-color:white; ">
+	
+			<tr>
+				<td id="show"></td>
+			</tr>
+	</table>
+      
+      
+      
       <table class="tab hd brown">
 		<tr>
 			<td style="color:brown">USER LOGIN</td>

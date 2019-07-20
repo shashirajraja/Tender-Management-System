@@ -55,7 +55,11 @@
                   <li><a href="#">Search Vendor</a></li>
                 </ul>
               </li>
-            <li><a href="#"> Account </a></li>
+           <li><a href="#"> Account </a></li>
+           <li>
+              <a href="LogoutSrv"> Logout </a>
+            </li>
+            
             <li>
               <!-- Form for searching any tenders or items-->
               <form class="navbar-form hidden-xs" action="/action_page.php"  >

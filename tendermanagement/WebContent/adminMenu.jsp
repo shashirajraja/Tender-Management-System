@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Admin Home</title>
 </head>
 <body>
 	  <div class="menubar secondnav " style="background-color:white;">
@@ -16,46 +16,30 @@
                 <span class="glyphicon glyphicon-home"></span> Home</a> <!--Home button is here -->
             </li>
             <li class="dropdown">
-                <a class="dropdown-toggle " data-toggle="dropdown" data-animations="fadeIn fadeInLeft fadeInUp fadeInRight" data-hover="dropdown">About Us
+                <a class="dropdown-toggle " data-toggle="dropdown" data-animations="fadeIn fadeInLeft fadeInUp fadeInRight" data-hover="dropdown">Vendors
                     <span class="caret"></span></a>    <!--Dropdown under about us category -->
                 <ul class="dropdown-menu">
-                  <li><a href="#">Our Goal</a></li>
-                  <li><a href="#">About Admin</a></li>
-                  <li><a href="#">Companies/Vendors</a></li>
-                  <li><a href="#">Contact Us</a></li>
+                  <li><a href="#">View All Vendors</a></li>
+                  <li><a href="#">Approve Vendors</a></li>
+                  <li><a href="#">Vendor Detail</a></li>
                 </ul>
               </li>
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-animations="fadeIn fadeInLeft fadeInUp fadeInRight"> 
                 <!--Dropdown under tender category -->
-                  Tenders
+                  Tender
                     <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a href="#">View all Tenders</a></li>
-                  <li><a href="#">Apply for a Tender</a></li>
-                  <li><a href="#">Bid Approval Status</a></li>
-                  <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-animations="default" href="#">Receipt
-                    <span class="caret"></span></a>
-                    
-                    <ul class="dropdown-menu">
-                          <li><a href="index.html">Application Receipt</a></li>
-                          <li><a href="#">Approval Receipt</a></li>
-                      </ul>
-                  </li>
-                  <li><a href="#">Companies</a></li>
-                </ul>
-              </li>
-            <li class="dropdown">              <!--Dropdown under Vendors Category -->
-                <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-animations="fadeIn fadeInLeft fadeInUp fadeInRight">Tenders
-                    <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Load</a></li>
-                  <li><a href="#">Approval Status</a></li>
-                  <li><a href="#">View Tenders</a></li>
-                  <li><a href="#">Tenders Criteria</a></li>
-                </ul>
-              </li>
+                  <li><a href="createTender.jsp">Create New Tender</a></li>
+                  <li><a href="#">View Tender Bids</a></li>
+                  <li><a href="#">Accept a bid</a></li>
+                  </ul>
+            
+            <li >
+              <a href="LogoutSrv">Logout </a> 
+            </li>
+            
             
             <li>
               <!-- Form for searching any tenders or items-->
@@ -63,7 +47,9 @@
                 <div class="form-group" >
                   <input type="text" class="form-control" placeholder="Find Tenders by name" style="margin-left: 150px;" required>
                 </div>
+               
                 <button type="submit" class="btn btn-primary">Search</button>
+                
               </form>
               <!--End of form section-->
             </li>
