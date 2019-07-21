@@ -2,6 +2,7 @@ package com.hit.srv;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,22 +10,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.hit.beans.TenderBean;
-import com.hit.dao.TenderDao;
-import com.hit.dao.TenderDaoImpl;
-import com.hit.utility.IDUtil;
+import com.hit.beans.NoticeBean;
+import com.hit.dao.NoticeDao;
+import com.hit.dao.NoticeDaoImpl;
 
 /**
- * Servlet implementation class CreateTenderSrv
+ * Servlet implementation class UpdateNotice
  */
-@WebServlet("/CreateTenderSrv")
-public class CreateTenderSrv extends HttpServlet {
+@WebServlet("/UpdateNotice")
+public class UpdateNotice extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CreateTenderSrv() {
+    public UpdateNotice() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,30 +34,28 @@ public class CreateTenderSrv extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String tid= IDUtil.generateTenderId();
-		String tname= request.getParameter("tname").trim();
-		String ttype= request.getParameter("ttype").trim();
-		String stprice= request.getParameter("tprice").trim();
-		String tdesc= request.getParameter("tdesc").trim();
-		String stdeadline= request.getParameter("tdeadline").trim();
-		String tloc= request.getParameter("tloc").trim();
-		int tprice=Integer.parseInt(stprice);
-		System.out.print(tid+" "+tname+" "+ttype+" "+tprice+" "+tdesc+" "+stdeadline+" "+tloc+" "+"completed ");
+		int noticeId = Integer.parseInt(request.getParameter("id"));
+		String noticeTitle = request.getParameter("title");
+		String noticeDesc = request.getParameter("info");
 		
-		TenderBean tender = new //TenderBean(id, name, type, price, desc, stdeadline, location)
-				
-				 TenderBean(tid,tname,ttype,tprice,tdesc,stdeadline,tloc);
+		NoticeBean notice = new NoticeBean(noticeId, noticeTitle, noticeDesc);
 		
-		TenderDao dao = new TenderDaoImpl();
+		NoticeDao dao = new NoticeDaoImpl();
 		
-		String status = dao.createTender(tender);
+		String status = dao.updateNotice(notice);
 		
 		PrintWriter pw = response.getWriter();
-		RequestDispatcher rd = request.getRequestDispatcher("createTender.jsp");
+		
+		RequestDispatcher rd = request.getRequestDispatcher("updateNotice.jsp");
 		
 		rd.include(request, response);
 		
+		System.out.println("id: "+noticeId+" title= "+noticeTitle+" desc: "+noticeDesc);
+		
+		
 		pw.print("<script>document.getElementById('show').innerHTML = '"+status+"'</script>");
+		
+		pw.close();
 	}
 
 	/**
@@ -66,4 +64,5 @@ public class CreateTenderSrv extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request,response);
 	}
+
 }

@@ -74,12 +74,16 @@ public class LoginSrv extends HttpServlet {
 		else if(user.toLowerCase().equals("login as vendor")){
 			//Vendor Login Check
 			Connection conn =DBUtil.provideConnection();
-			PreparedStatement ps;
+			PreparedStatement ps = null;
+			PreparedStatement pst = null;
+			ResultSet rs = null;
+			ResultSet rs1 = null;
+			
 			try {
-				ps = conn.prepareStatement("select * from vendor where vid=? and password=?");
-				ps.setString(1, uname);
-				ps.setString(2, pword);
-				ResultSet rs=ps.executeQuery();
+				pst = conn.prepareStatement("select * from vendor where vid=? and password=?");
+				pst.setString(1, uname);
+				pst.setString(2, pword);
+				rs=pst.executeQuery();
 				if(rs.next()){ //Vendor Login Successful
 					
 					HttpSession session = request.getSession();
@@ -104,12 +108,15 @@ public class LoginSrv extends HttpServlet {
 					
 					RequestDispatcher rd = request.getRequestDispatcher("vendorHome.jsp");
 					rd.forward(request, response);
+					
 				}
 				else{
+					
 					ps = conn.prepareStatement("select * from vendor where vemail=? and password=?");
 					ps.setString(1, uname);
 					ps.setString(2, pword);
-					ResultSet rs1=ps.executeQuery();
+					
+					rs1=ps.executeQuery();
 					if(rs1.next()){
 						
 						HttpSession session = request.getSession();
@@ -140,14 +147,24 @@ public class LoginSrv extends HttpServlet {
 					PrintWriter pw = response.getWriter();
 					RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
 					rd.include(request, response);
-					pw.print("<script>document.getElementById('show').innerHTML = 'Either Username or Password Invalid!!'</script>");
+					pw.print("<script>document.getElementById('show').innerHTML = 'Invalid Username or Password<br>Please Try Again!'</script>");
 					}
+					
 			} 
 				}catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			finally{
+				
+				DBUtil.closeConnection(ps);
+				
+				DBUtil.closeConnection(pst);
+				
+				DBUtil.closeConnection(rs);
 			
+				DBUtil.closeConnection(rs1);
+			}
 			
 		}
 		

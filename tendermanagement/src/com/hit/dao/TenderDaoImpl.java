@@ -1,6 +1,5 @@
 package com.hit.dao;
 
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,11 +8,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
-
 import com.hit.beans.TenderBean;
 import com.hit.utility.DBUtil;
-import com.mysql.jdbc.ResultSetImpl;
 
 public class TenderDaoImpl implements TenderDao{
 
@@ -23,7 +19,8 @@ public class TenderDaoImpl implements TenderDao{
 		
 		Connection con = DBUtil.provideConnection();
 		
-		PreparedStatement ps;
+		PreparedStatement ps = null;
+		PreparedStatement pst = null;
 		try {
 			
 			ps = con.prepareStatement("select * from tender where tid=?");
@@ -46,9 +43,9 @@ public class TenderDaoImpl implements TenderDao{
 			tenderList.add(tender);
 			}
 			else{
-				ps = con.prepareStatement("select * from tender where tname like '%"+tid+"%'");
+				pst = con.prepareStatement("select * from tender where tname like '%"+tid+"%'");
 				
-				ResultSet rss = ps.executeQuery();
+				ResultSet rss = pst.executeQuery();
 				
 				while(rss.next()){
 					TenderBean tender = new TenderBean();
@@ -69,7 +66,15 @@ public class TenderDaoImpl implements TenderDao{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		finally{
+			
+			DBUtil.closeConnection(ps);
+			
+			DBUtil.closeConnection(pst);
+			
+			DBUtil.closeConnection(con);
+			
+		}
 		
 		
 		
@@ -82,10 +87,13 @@ public class TenderDaoImpl implements TenderDao{
 		
 		Connection con = DBUtil.provideConnection();
 		
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
 		try {
-			PreparedStatement ps = con.prepareStatement("select * from tender");
+			ps = con.prepareStatement("select * from tender");
 			
-			ResultSet rs=ps.executeQuery();
+			rs=ps.executeQuery();
 			while(rs.next())
 			{
 				TenderBean tender=new TenderBean();
@@ -102,10 +110,18 @@ public class TenderDaoImpl implements TenderDao{
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
-		
+		finally{
+			
+			DBUtil.closeConnection(ps);
+			
+			DBUtil.closeConnection(rs);
+			
+			DBUtil.closeConnection(con);
+			
+		}
 		
 		
 		return tenderList;
@@ -118,8 +134,10 @@ public class TenderDaoImpl implements TenderDao{
 		
 		Connection conn=DBUtil.provideConnection();
 		
+		PreparedStatement pst = null;
+		
 		try {
-			PreparedStatement pst= conn.prepareStatement("insert into tender values(?,?,?,?,?,?,?)");
+			pst= conn.prepareStatement("insert into tender values(?,?,?,?,?,?,?)");
 			pst.setString(1, tender.getId());
 			pst.setString(2, tender.getName());
 			pst.setString(3, tender.getType());
@@ -142,6 +160,13 @@ public class TenderDaoImpl implements TenderDao{
 			
 			e.printStackTrace();
 		}
+		finally{
+		
+			DBUtil.closeConnection(pst);
+			
+			DBUtil.closeConnection(conn);
+			
+		}
 		
 		return status;
 	}
@@ -152,7 +177,7 @@ boolean flag=false;
 		
 		Connection con = DBUtil.provideConnection();
 		
-		PreparedStatement ps;
+		PreparedStatement ps = null;
 		try {
 			
 			ps = con.prepareStatement("delete from tender where tid=?");
@@ -169,10 +194,15 @@ boolean flag=false;
 			}
 		}
 		catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-				
+		finally{
+			
+			DBUtil.closeConnection(ps);
+			
+			DBUtil.closeConnection(con);
+			
+		}
 				
 		return flag;
 	}
@@ -183,8 +213,10 @@ boolean flag=false;
 		
 		Connection con = DBUtil.provideConnection();
 		
+		PreparedStatement pst = null;
+		
 		try {
-			PreparedStatement pst = con.prepareStatement("UPDATE tender SET tname=?,ttype=?,tprice=?,tdesc=?,tdesc=?,tloc=? where tid=?");
+			pst = con.prepareStatement("UPDATE tender SET tname=?,ttype=?,tprice=?,tdesc=?,tdesc=?,tloc=? where tid=?");
 			
 			pst.setString(1, tender.getName());
 			pst.setString(2, tender.getType());
@@ -202,8 +234,15 @@ boolean flag=false;
 				status="TENDER DETAILS UPDATED SUCCSESFULLY";
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			status = "Error: "+e.getMessage();
 			e.printStackTrace();
+		}
+		finally{
+			
+			DBUtil.closeConnection(pst);
+			
+			DBUtil.closeConnection(con);
+			
 		}
 		
 		return status;

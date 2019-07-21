@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="css/style2.css">
     <style>
 	.tab{
-	border-radius:30px;
+	border-radius:0px;
 		border:1px black solid;
 		
 		background-color: #FFE5CC;
@@ -67,14 +67,14 @@
       
    <div class="col-md-8">
     <div class="marquee" style="border:2px black hidden; background-color:white">
-        <h4 style="background-color:black; margin-top:-1.8px; margin-bottom:1px;padding: 5px; text-align: center;color:red;font-weight:bold">
+        <h4 style="background-color:black; margin-top:-1.8px; margin-bottom:1px;padding: 5px; text-align: center;color:white;font-weight:bold">
         &nbsp; <span id="pagetitle">Account Login</span></h4><!-- pagetitle id is given here -->
-        <div class="marquee-content" style="align:center; padding-top:200px;min-height:750px;background-color:cyan">
+        <div class="marquee-content" style="align:center; padding-top:100px;min-height:750px;background-color:cyan">
       
-      <table class="tab hd " style="color:blue;margin-bottom:50px;background-color:white; ">
+      <table class="tab hd " style="color:blue;margin-bottom:50px;background-color:white;padding:15px; ">
 	
 			<tr>
-				<td id="show">Please Login First Using Correct Credential</td>
+				<td id="show">Please Login First to Proceed!</td>
 			</tr>
 	</table>
       
@@ -92,10 +92,10 @@
 			<td>
 				<form action="LoginSrv" method="post">
 				<br>
-					Username: <input type="text" name="username" required="required"><br/><br/>
-					Password: <input type="password" name="password" required="required"><br/><br/>
-					<input type="submit" value="LOGIN AS VENDOR" name="user">
-					<input type="submit" value="LOGIN AS ADMIN" name="user"><br/><br/>
+					Username: <input type="text" name="username" required="required" style="color:black;font-size:19px;"><br/><br/>
+					Password: <input type="password" name="password" required="required" style="color:black;font-size:19px;"><br/><br/>
+					<input type="submit" value="Login As Admin" name="user"> &nbsp; &nbsp; &nbsp; &nbsp;
+					<input type="submit" value="Login As Vendor" name="user"><br/><br/>
 				</form>
 			</td>
 			

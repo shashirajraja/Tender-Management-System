@@ -17,7 +17,7 @@
               
               <%
               try{
-            	  PreparedStatement ps = con.prepareStatement("select * from approvedtender order by sysdate()");
+            	  PreparedStatement ps = con.prepareStatement("select * from approvedtender order by sysdate() asc");
             	  ResultSet rs = ps.executeQuery();
             	  int i=0;
             	  while(rs.next()){

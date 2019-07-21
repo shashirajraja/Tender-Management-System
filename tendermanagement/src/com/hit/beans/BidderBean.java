@@ -6,6 +6,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class BidderBean implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String bidId;
 	private String vendorId;
 	private String tenderId;

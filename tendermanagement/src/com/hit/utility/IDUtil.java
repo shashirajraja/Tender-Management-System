@@ -10,6 +10,7 @@ public class IDUtil {
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMddhhmmss");
 		tid=sdf.format(new Date());
 		tid = "T"+tid;
+		
 		return tid;
 	}
 	
@@ -20,6 +21,7 @@ public class IDUtil {
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMddhhmmss");
 		vid=sdf.format(new Date());
 		vid = "V"+vid;
+		
 		return vid;
 	}
 	
@@ -33,6 +35,7 @@ public class IDUtil {
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMddhhmmss");
 		bidderId =sdf.format(new Date());
 		bidderId = "B"+bidderId;
+		
 		return bidderId;
 	}
 }

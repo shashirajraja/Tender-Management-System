@@ -3,6 +3,7 @@ package com.hit.srv;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.servlet.annotation.WebServlet;
 
@@ -18,9 +19,11 @@ public class CheckConnection {
 		else{
 			System.out.println("Connected");
 			
+			PreparedStatement ps = null;
+			ResultSet rs = null;
 			try{
-            	PreparedStatement ps = con.prepareStatement("select * from notice");
-            	ResultSet rs = ps.executeQuery();
+            	ps = con.prepareStatement("select * from notice");
+            	rs = ps.executeQuery();
             	String noticeTitle = null;
             	String noticeInfo = null;
             	while(rs.next()){
@@ -30,9 +33,15 @@ public class CheckConnection {
             		System.out.println("Printed");
             	}
             }
-            catch(Exception e){}
+            catch(Exception e){
+            	e.printStackTrace();
+            }
+			finally{
+				
+				DBUtil.closeConnection(ps);
+				DBUtil.closeConnection(rs);
 			
-			
+			}
 		}
 	}
 }

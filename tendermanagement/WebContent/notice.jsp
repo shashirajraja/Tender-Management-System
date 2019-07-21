@@ -19,7 +19,7 @@
             <% 
                 Connection con = DBUtil.provideConnection();
                 try{
-                	PreparedStatement ps = con.prepareStatement("select * from notice order by sysdate()");
+                	PreparedStatement ps = con.prepareStatement("select * from notice order by sysdate() asc");
                 	ResultSet rs = ps.executeQuery();
                 	String noticeTitle = null;
                 	String noticeInfo = null;

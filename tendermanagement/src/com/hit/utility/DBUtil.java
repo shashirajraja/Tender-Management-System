@@ -2,6 +2,8 @@ package com.hit.utility;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
@@ -41,8 +43,44 @@ public class DBUtil {
 			e.printStackTrace();
 		}
 		
-		
 	
 		return conn;
 	}
+	
+	public static void closeConnection(PreparedStatement ps){
+		
+		try {
+			if(ps != null)
+				ps.close();
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public static void closeConnection(ResultSet rs){
+		
+		try {
+			if(rs != null)
+				rs.close();
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public static void closeConnection(Connection con){
+		
+		try {
+			if(con != null)
+				con.close();
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+		
+	}
+	
 }

@@ -35,7 +35,19 @@
                   <li><a href="#">View Tender Bids</a></li>
                   <li><a href="#">Accept a bid</a></li>
                   </ul>
-            
+             </li>
+             
+            <li class="dropdown">
+                <a class="dropdown-toggle " data-toggle="dropdown" data-animations="fadeIn fadeInLeft fadeInUp fadeInRight" data-hover="dropdown">Notice
+                    <span class="caret"></span></a>    <!--Dropdown under about us category -->
+                <ul class="dropdown-menu">
+                  <li><a href="addNotice.jsp">Add Notice</a></li>
+                  <li><a href="removeNotice.jsp">Remove Notice</a></li>
+                  <li><a href="updateNotice.jsp">Update Notice</a></li>
+                  <li><a href="viewNotice.jsp">View All Notice</a></li>
+                </ul>
+              </li>
+              
              <li>
             	<a href="LogoutSrv">Logout</a>
         
@@ -45,7 +57,7 @@
               <!-- Form for searching any tenders or items-->
               <form class="navbar-form hidden-xs" action="searchTender.jsp"  >
                 <div class="form-group" >
-                  <input type="text" name="tid" class="form-control" placeholder="Find Tenders by name" style="margin-left: 150px;" required>
+                  <input type="text" name="tid" class="form-control" placeholder="Find Tenders by name or tenderId" style="margin-left:10px;" required>
                 </div>
                
                 <button type="submit" class="btn btn-primary" >Search</button>

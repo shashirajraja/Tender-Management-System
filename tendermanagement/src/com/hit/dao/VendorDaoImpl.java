@@ -1,13 +1,10 @@
 package com.hit.dao;
 
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-
-import javax.servlet.RequestDispatcher;
 
 import com.hit.beans.VendorBean;
 import com.hit.utility.DBUtil;
@@ -22,6 +19,8 @@ public class VendorDaoImpl  implements VendorDao{
 		Connection con = DBUtil.provideConnection();
 		
 		PreparedStatement pst = null;
+		
+		PreparedStatement ps = null;
 		
 		try {
 			
@@ -38,7 +37,7 @@ public class VendorDaoImpl  implements VendorDao{
 		
 			try {
 			
-				PreparedStatement ps = con.prepareStatement("insert into vendor values(?,?,?,?,?,?,?)");
+				ps = con.prepareStatement("insert into vendor values(?,?,?,?,?,?,?)");
 				
 				ps.setString(1, vendor.getId());
 				ps.setString(2, vendor.getPassword());
@@ -58,6 +57,11 @@ public class VendorDaoImpl  implements VendorDao{
 				e.printStackTrace();
 				status = "Error: "+e.getMessage();
 			}
+			finally{
+				
+				DBUtil.closeConnection(ps);
+				
+			}
 		}
 	}
 	catch(SQLException e){
@@ -65,6 +69,12 @@ public class VendorDaoImpl  implements VendorDao{
 		status = "Error: "+ e.getErrorCode()+" : "+e.getMessage();
 	}
 
+	finally{
+		
+		DBUtil.closeConnection(pst);
+		
+		DBUtil.closeConnection(con);
+	}
 	return status;
 
 }

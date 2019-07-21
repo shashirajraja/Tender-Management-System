@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
- <%@page import="java.sql.*,java.lang.Integer,java.lang.String, com.hit.beans.TenderBean,com.hit.utility.DBUtil,java.util.List,com.hit.dao.TenderDaoImpl,com.hit.dao.TenderDao, javax.servlet.annotation.WebServlet" errorPage="errorpage.jsp"%>
+ <%@page import="java.sql.*, java.lang.Integer,com.hit.beans.NoticeBean,com.hit.utility.DBUtil,java.util.List,java.util.ArrayList,com.hit.dao.NoticeDaoImpl,com.hit.dao.NoticeDao, javax.servlet.annotation.WebServlet" errorPage="errorpage.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
   <head>
@@ -30,7 +30,7 @@
     	min-width:145px;
     	border: 2px dashed black;
     }
-    table{
+ table{
     	text-align:center;
     	border-radius:10px;
 		border:1px red solid;
@@ -39,13 +39,39 @@
 		margin:20px;
 		color:blue;
 		font-style:normal;
-		font-size: 15px;
+		font-size: 15.5px;
 		padding:20px;
 		cellpadding:10;
 		cellspacing:10;
     }
+    tr:hover{
+    	background-color: #DEBEE1;
+    	color:black;
+    } 
+    textarea:hover{
+    	background-color:#ADBFAF;
+    	color:black;
+    }
+    .button:hover{
+    	background-color:green;
+    	color:white;
+    	font-size:bold;
+    }
+    #show{
+    	
+    	text-align:center;
+    	border-radius:10px;
+		border:1px red solid;
+		text-align:center;
+		background-color: cyan;
+		margin:20px;
+		color:black;
+		font-style:normal;
+		font-size: 15.5px;
+		padding:12px;
+		
     
-    
+    }
     </style>
   </head>
 <body>
@@ -63,7 +89,8 @@
 		}
 	
 	%>
-	
+
+
 	<!-- Including the header of the page  -->
 	
 	<jsp:include page="header.jsp"></jsp:include>
@@ -97,34 +124,40 @@
         &nbsp; <span id="pagetitle">Admin Account</span></h4>pagetitle id is given here
         <div class="marquee-content" style="align:center; padding-top:200px;min-height:750px;background-color:cyan">
      		 -->
+     		 <div id="show">
+     		 
+     		 	 Edit the Given Notice Title and Description in the given box and click on update
+     		 	 
+     		 </div>
+   <form action="UpdateNotice" method="post">
      <table style="background-color:white">		
-     		<tr style="color:red; font-size:22px; font-weight:bold;background-color:green"> <td>Tender Id</td> <td>Tender Name </td> <td> Tender Type </td> <td>Tender Price</td> <td>Location</td> <td>Deadline</td> <td>Description</td> </tr>
+     		<tr style="color:white; font-size:22px; font-weight:bold;background-color:#660033">
+     		 <td>Notice Id</td> <td>Title </td> <td> Description</td> <td>Update ? </td></tr>
      		<%
-     			TenderDao dao = new TenderDaoImpl();
-     			List<TenderBean> tenderList = dao.getTenderDetails(request.getParameter("tid"));
-     			for(TenderBean tender : tenderList){
-     				String tid = tender.getId();
-     				String tname = tender.getName();
-     				String ttype = tender.getType();
-     				int tprice = tender.getPrice();
-     				String tloc = tender.getLocation();
-     				java.util.Date udeadline = tender.getDeadline();
-     				java.sql.Date tdeadline = new java.sql.Date(udeadline.getTime()); 
-     				String tdesc = tender.getDesc();
+     			NoticeDao dao = new NoticeDaoImpl();
+     			List<NoticeBean> noticeList = dao.viewAllNotice();
+     			
+     			for(NoticeBean notice : noticeList){
+     				
+     				int noticeId = notice.getNoticeId();
+     				
+     				String noticeTitle = notice.getNoticeTitle();
+     				
+     				String noticeDesc = notice.getNoticeInfo();
      				
      				%>
      				
-     
-     		<tr> <td><%=tid %></td> <td><%=tname %></td> <td><%=ttype %></td> <td><%=tprice %></td> <td><%=tloc %></td> <td><%=tdeadline %></td> <td><%=tdesc %></td> </tr>
+     			
+     		<tr> <td> <input type="hidden" name="id" value="<%=noticeId %>"><%= noticeId %> </td> <td style="width:120%;"><textarea name="title"><%=noticeTitle %></textarea></td> <td><textarea name="info" cols="60"><%=noticeDesc %></textarea></td> <td><input id="button" type="submit" value="Update"></td> </tr>
      		
      		
-     
+ 
  <% } 
  
- 	DBUtil.closeConnection(con);
+ 
  %>
     </table>	
-     		
+   </form>	
       <!-- </div>
      </div> -->
      </div>

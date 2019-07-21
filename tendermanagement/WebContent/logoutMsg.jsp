@@ -24,7 +24,7 @@
 <body>
   <div class="col-md-8">
     <div class="marquee" style="border:2px black hidden; background-color:white">
-        <h4 style="background-color:black; margin-top:-1.8px; margin-bottom:1px;padding: 5px; text-align: center;color:red;font-weight:bold">
+        <h4 style="background-color:black; margin-top:-1.8px; margin-bottom:1px;padding: 5px; text-align: center;color:white;font-weight:bold">
         &nbsp; <span id="pagetitle">Logout Successful!<br><br> <a href="login.jsp">Login Again To Continue</a> </span></h4><!-- pagetitle id is given here -->
       <div class="marquee-content" style="padding:1px;padding-top:0px; font-weight: bold; font-size: 1.1em">
       <!-- height="900" -->   
