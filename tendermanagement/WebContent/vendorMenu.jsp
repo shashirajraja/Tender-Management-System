@@ -56,8 +56,9 @@
                 </ul>
               </li>
            <li><a href="#"> Account </a></li>
+           
            <li>
-              <a href="index.jsp"> Logout </a>
+              <a href="LogoutSrv"> Logout </a>
             </li>
             
             <li>

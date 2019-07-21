@@ -24,11 +24,15 @@ public class IDUtil {
 	}
 	
 	public static String generateApplicationId(){
-		String appId = null;
+		return generateBidderId();
+	}
+	
+	public static String generateBidderId(){
+		String bidderId = null;
 		
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMddhhmmss");
-		appId=sdf.format(new Date());
-		appId = "A"+appId;
-		return appId;
+		bidderId =sdf.format(new Date());
+		bidderId = "B"+bidderId;
+		return bidderId;
 	}
 }

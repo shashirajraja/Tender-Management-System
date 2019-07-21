@@ -15,6 +15,7 @@ public class BidderBean implements Serializable {
 	public String getBidId() {
 		return bidId;
 	}
+	
 	public void setBidId(String bidId) {
 		this.bidId = bidId;
 	}
@@ -39,9 +40,13 @@ public class BidderBean implements Serializable {
 	public Date getBidDeadline() {
 		return bidDeadline;
 	}
-	public void setBidDeadline(Date bidDeadline) {
-		this.bidDeadline = bidDeadline;
+	public void setBidDeadline(java.sql.Date bidDeadline){
+		
+		this.bidDeadline = new java.util.Date(bidDeadline.getTime());
 	}
+	/*public void setBidDeadline(Date bidDeadline) {
+		this.bidDeadline = bidDeadline;
+	}*/
 	public String getBidStatus() {
 		return bidStatus;
 	}

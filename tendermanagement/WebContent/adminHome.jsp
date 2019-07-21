@@ -21,6 +21,21 @@
     <link rel="stylesheet" href="css/style2.css">
   </head>
 <body>
+
+	<%
+		String user = (String)session.getAttribute("user");
+		String uname = (String)session.getAttribute("username");
+		String pword = (String)session.getAttribute("password");
+		
+		if(!user.equalsIgnoreCase("admin") || uname.equals("") || pword.equals("")){
+			
+			response.sendRedirect("loginFailed.jsp");
+			
+		}
+	
+	%>
+
+
 	<!-- Including the header of the page  -->
 	
 	<jsp:include page="header.jsp"></jsp:include>

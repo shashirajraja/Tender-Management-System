@@ -36,10 +36,10 @@
                   <li><a href="#">Accept a bid</a></li>
                   </ul>
             
-            <li >
-              <a href="index.jsp">Logout </a> 
+             <li>
+            	<a href="LogoutSrv">Logout</a>
+        
             </li>
-            
             
             <li>
               <!-- Form for searching any tenders or items-->

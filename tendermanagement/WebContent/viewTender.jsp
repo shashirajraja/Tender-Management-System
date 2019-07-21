@@ -30,7 +30,7 @@
     	min-width:145px;
     	border: 2px dashed black;
     }
-    table{
+ table{
     	text-align:center;
     	border-radius:10px;
 		border:1px red solid;
@@ -39,16 +39,35 @@
 		margin:20px;
 		color:blue;
 		font-style:normal;
-		font-size: 15px;
+		font-size: 15.5px;
 		padding:20px;
 		cellpadding:10;
 		cellspacing:10;
     }
-    
+    tr:hover{
+    	background-color: #DEBEE1;
+    	color:black;
+    } 
     
     </style>
   </head>
 <body>
+
+
+	<%
+		String user = (String)session.getAttribute("user");
+		String uname = (String)session.getAttribute("username");
+		String pword = (String)session.getAttribute("password");
+		
+		if(!user.equalsIgnoreCase("admin") || uname.equals("") || pword.equals("")){
+			
+			response.sendRedirect("loginFailed.jsp");
+			
+		}
+	
+	%>
+
+
 	<!-- Including the header of the page  -->
 	
 	<jsp:include page="header.jsp"></jsp:include>
@@ -83,7 +102,7 @@
         <div class="marquee-content" style="align:center; padding-top:200px;min-height:750px;background-color:cyan">
      		 -->
      <table style="background-color:white">		
-     		<tr style="color:red; font-size:22px; font-weight:bold;background-color:green"> <td>Tender Id</td> <td>Tender Name </td> <td> Tender Type </td> <td>Tender Price</td> <td>Location</td> <td>Deadline</td> <td>Description</td> </tr>
+     		<tr style="color:white; font-size:22px; font-weight:bold;background-color:green"> <td>Tender Id</td> <td>Tender Name </td> <td> Tender Type </td> <td>Tender Price</td> <td>Location</td> <td>Deadline</td> <td>Description</td> </tr>
      		<%
      			TenderDao dao = new TenderDaoImpl();
      			List<TenderBean> tenderList = dao.getAllTenders();

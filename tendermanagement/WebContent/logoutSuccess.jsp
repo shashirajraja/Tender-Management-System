@@ -21,20 +21,6 @@
     <link rel="stylesheet" href="css/style2.css">
   </head>
 <body>
-
-	<%
-		String user = (String)session.getAttribute("user");
-		String uname = (String)session.getAttribute("username");
-		String pword = (String)session.getAttribute("password");
-		
-		if(!user.equalsIgnoreCase("user") || uname.equals("") || pword.equals("")){
-			
-			response.sendRedirect("loginFailed.jsp");
-			
-		}
-	
-	%>
-	
 	<!-- Including the header of the page  -->
 	
 	<jsp:include page="header.jsp"></jsp:include>
@@ -58,24 +44,9 @@
         </div>  <!-- End of col-md-3-->
       </div> <!-- End of notice class-->
       
-      
       <!-- Next part of same container-fluid in which galary or other information will be shown-->
       
-          
-   <div class="col-md-8">
-    <div class="marquee" style="border:2px black hidden; background-color:white">
-        <h4 style="background-color:black; margin-top:-1.8px; margin-bottom:1px;padding: 5px; text-align: center;color:red;font-weight:bold">
-        &nbsp; <span id="pagetitle">VENDOR ACCOUNT</span></h4><!-- pagetitle id is given here -->
-        <div class="marquee-content" style="align:center; padding-top:200px;min-height:750px;background-color:cyan">
-     		<h1>VENDOR PAGE</h1>
-      </div>
-     </div>
-     </div>
-      
-      
-      
-      
-     <a><h1></h1></a>
+      <jsp:include page="logoutMsg.jsp"></jsp:include>
       
     </div> <!-- End of container-fluid-->
 	

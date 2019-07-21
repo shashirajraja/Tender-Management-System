@@ -14,6 +14,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.hit.beans.VendorBean;
 import com.hit.utility.DBUtil;
@@ -54,11 +55,10 @@ public class LoginSrv extends HttpServlet {
 			//Admin login check
 			if(uname.equals("Admin") && pword.equals("Admin")){
 				//login successful
-				Cookie[] ck = new Cookie[2];
-				ck[0] = new Cookie("username",uname);
-				ck[1] = new Cookie("password",pword);
-				response.addCookie(ck[0]);
-				response.addCookie(ck[1]);
+				HttpSession session = request.getSession();
+				session.setAttribute("user","admin");
+				session.setAttribute("username", uname);
+				session.setAttribute("password", pword);
 				RequestDispatcher rd = request.getRequestDispatcher("adminHome.jsp");
 				rd.forward(request, response);
 			}
@@ -80,9 +80,19 @@ public class LoginSrv extends HttpServlet {
 				ps.setString(1, uname);
 				ps.setString(2, pword);
 				ResultSet rs=ps.executeQuery();
-				if(rs.next()){
+				if(rs.next()){ //Vendor Login Successful
+					
+					HttpSession session = request.getSession();
+					session.setAttribute("user","user");
+					session.setAttribute("username", uname);
+					session.setAttribute("password", pword);
+					
+					
+					
+					
 					String vid = uname;
 					String pass = pword;
+					
 					String vname = rs.getString("vname");
 					String vemail= rs.getString("vemail");
 					String vaddr = rs.getString("address");
@@ -101,6 +111,14 @@ public class LoginSrv extends HttpServlet {
 					ps.setString(2, pword);
 					ResultSet rs1=ps.executeQuery();
 					if(rs1.next()){
+						
+						HttpSession session = request.getSession();
+						session.setAttribute("user","user");
+						session.setAttribute("username", uname);
+						session.setAttribute("password", pword);
+						
+						
+						
 						String vid = rs1.getString("vid");
 						String pass = pword;
 						String vname = rs1.getString("vname");

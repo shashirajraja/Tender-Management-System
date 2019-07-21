@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
- <%@page import="java.sql.*,java.lang.Integer,java.lang.String, com.hit.beans.TenderBean,com.hit.utility.DBUtil,java.util.List,com.hit.dao.TenderDaoImpl,com.hit.dao.TenderDao, javax.servlet.annotation.WebServlet" errorPage="errorpage.jsp"%>
+ <%@page import="java.sql.*, com.hit.utility.DBUtil, javax.servlet.annotation.WebServlet" errorPage="errorpage.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
   <head>
@@ -20,49 +20,24 @@
     <link href="css/bootstrap-dropdownhover.min.css">
     <link rel="stylesheet" href="css/style2.css">
     <style>
-    th,tr{
-    	height:50px;
-    	border:2px black solid;
-    	
-    }
-   
-    td{
-    	min-width:145px;
-    	border: 2px dashed black;
-    }
-    table{
-    	text-align:center;
-    	border-radius:10px;
-		border:1px red solid;
-		text-align:center;
-		background-color: cyan;
-		margin:20px;
-		color:blue;
+	.tab{
+	border-radius:30px;
+		border:1px black solid;
+		
+		background-color: #FFE5CC;
+		margin-left: 25%;
+		width:450px;
+		color:green;
+		font-weight: bold;
 		font-style:normal;
-		font-size: 15px;
+		text-align:center;
+		font-size: 20px;
+		margin-bottom:10px;
 		padding:20px;
-		cellpadding:10;
-		cellspacing:10;
-    }
-    
-    
+	}
     </style>
   </head>
 <body>
-
-	<%
-		String user = (String)session.getAttribute("user");
-		String uname = (String)session.getAttribute("username");
-		String pword = (String)session.getAttribute("password");
-		
-		if(!user.equalsIgnoreCase("user") || uname.equals("") || pword.equals("")){
-			
-			response.sendRedirect("loginFailed.jsp");
-			
-		}
-	
-	%>
-	
 	<!-- Including the header of the page  -->
 	
 	<jsp:include page="header.jsp"></jsp:include>
@@ -86,44 +61,50 @@
         </div>  <!-- End of col-md-3-->
       </div> <!-- End of notice class-->
       
-      
       <!-- Next part of same container-fluid in which galary or other information will be shown-->
       
-          
+      <%-- <jsp:include page="login.jsp"></jsp:include> --%>
+      
    <div class="col-md-8">
-    <!-- <div class="marquee" style="border:2px black hidden; background-color:white">
+    <div class="marquee" style="border:2px black hidden; background-color:white">
         <h4 style="background-color:black; margin-top:-1.8px; margin-bottom:1px;padding: 5px; text-align: center;color:red;font-weight:bold">
-        &nbsp; <span id="pagetitle">Admin Account</span></h4>pagetitle id is given here
+        &nbsp; <span id="pagetitle">Account Login</span></h4><!-- pagetitle id is given here -->
         <div class="marquee-content" style="align:center; padding-top:200px;min-height:750px;background-color:cyan">
-     		 -->
-     <table style="background-color:white">		
-     		<tr style="color:red; font-size:22px; font-weight:bold;background-color:green"> <td>Tender Id</td> <td>Tender Name </td> <td> Tender Type </td> <td>Tender Price</td> <td>Location</td> <td>Deadline</td> <td>Description</td> </tr>
-     		<%
-     			TenderDao dao = new TenderDaoImpl();
-     			List<TenderBean> tenderList = dao.getTenderDetails(request.getParameter("tid"));
-     			for(TenderBean tender : tenderList){
-     				String tid = tender.getId();
-     				String tname = tender.getName();
-     				String ttype = tender.getType();
-     				int tprice = tender.getPrice();
-     				String tloc = tender.getLocation();
-     				java.util.Date udeadline = tender.getDeadline();
-     				java.sql.Date tdeadline = new java.sql.Date(udeadline.getTime()); 
-     				String tdesc = tender.getDesc();
-     				
-     				%>
-     				
-     
-     		<tr> <td><%=tid %></td> <td><%=tname %></td> <td><%=ttype %></td> <td><%=tprice %></td> <td><%=tloc %></td> <td><%=tdeadline %></td> <td><%=tdesc %></td> </tr>
-     		
-     		
-     
- <% } %>
-    </table>	
-     		
-      <!-- </div>
-     </div> -->
+      
+      <table class="tab hd " style="color:blue;margin-bottom:50px;background-color:white; ">
+	
+			<tr>
+				<td id="show">Please Login First Using Correct Credential</td>
+			</tr>
+	</table>
+      
+      
+      
+      <!-- <table class="tab hd brown">
+		<tr>
+			<td style="color:brown"></td>
+		</tr>
+	</table> -->
+
+	<table class="tab hd blue" border="0px" cellpadding="10" cellspacing="10">
+		
+		<tr>
+			<td>
+				<form action="LoginSrv" method="post">
+				<br>
+					Username: <input type="text" name="username" required="required"><br/><br/>
+					Password: <input type="password" name="password" required="required"><br/><br/>
+					<input type="submit" value="LOGIN AS VENDOR" name="user">
+					<input type="submit" value="LOGIN AS ADMIN" name="user"><br/><br/>
+				</form>
+			</td>
+			
+		</tr>  
+	</table>
+      </div>
      </div>
+     </div>
+      
       
     </div> <!-- End of container-fluid-->
 	
