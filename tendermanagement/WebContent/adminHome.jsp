@@ -68,7 +68,10 @@
         <h4 style="background-color:black; margin-top:-1.8px; margin-bottom:1px;padding: 5px; text-align: center;color:red;font-weight:bold">
         &nbsp; <span id="pagetitle">Admin Account</span></h4><!-- pagetitle id is given here -->
         <div class="marquee-content" style="align:center; padding-top:200px;min-height:750px;background-color:cyan">
-     		<h1> Admin Page</h1>
+     		<h1><center>Hey Admin! Welcome to Our Tender Management system</center></h1>
+     		<h2><center>Here You can manage your vendors, add tenders and assign it to vendors according to their high bids</center></h2>
+     		<h3><center>Go on the about menu section links to explore the site</center></h3>
+     		<h3><center>You can also add notice,update it and delete the notice board from the database!</center></h3>
       </div>
      </div>
      </div>

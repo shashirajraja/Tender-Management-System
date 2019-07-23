@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
- <%@page import="java.sql.*, com.hit.utility.DBUtil, javax.servlet.annotation.WebServlet" errorPage="errorpage.jsp"%>
+ <%@page import="java.sql.*,com.hit.beans.VendorBean,com.hit.beans.BidderBean,java.lang.Integer,java.lang.String, com.hit.beans.TenderBean,com.hit.utility.DBUtil,java.util.List,com.hit.dao.BidderDaoImpl,com.hit.dao.BidderDao, javax.servlet.annotation.WebServlet" errorPage="errorpage.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
   <head>
@@ -19,6 +19,35 @@
     <link href="https://fonts.googleapis.com/css?family=Black+Ops+One" rel="stylesheet">
     <link href="css/bootstrap-dropdownhover.min.css">
     <link rel="stylesheet" href="css/style2.css">
+    <style>
+    th,tr{
+    	height:50px;
+    	border:2px black solid;
+    	
+    }
+   
+    td{
+    	min-width:145px;
+    	border: 2px dashed black;
+    }
+    table{
+    	text-align:center;
+    	border-radius:10px;
+		border:1px red solid;
+		text-align:center;
+		background-color: cyan;
+		margin:20px;
+		color:blue;
+		font-style:normal;
+		font-size: 15px;
+		padding:20px;
+		cellpadding:10;
+		cellspacing:10;
+		margin-left : 0px;
+    }
+    
+    
+    </style>
   </head>
 <body>
 
@@ -27,14 +56,17 @@
 		String uname = (String)session.getAttribute("username");
 		String pword = (String)session.getAttribute("password");
 		
-		if(!user.equalsIgnoreCase("user") || uname.equals("") || pword.equals("")){
+		if(user==null || !user.equalsIgnoreCase("user") || uname.equals("") || pword.equals("")){
 			
 			response.sendRedirect("loginFailed.jsp");
 			
 		}
 	
 	%>
-	
+
+
+
+
 	<!-- Including the header of the page  -->
 	
 	<jsp:include page="header.jsp"></jsp:include>
@@ -63,23 +95,37 @@
       
           
    <div class="col-md-8">
-    <div class="marquee" style="border:2px black hidden; background-color:white">
+    <!-- <div class="marquee" style="border:2px black hidden; background-color:white">
         <h4 style="background-color:black; margin-top:-1.8px; margin-bottom:1px;padding: 5px; text-align: center;color:red;font-weight:bold">
-        &nbsp; <span id="pagetitle">VENDOR ACCOUNT</span></h4><!-- pagetitle id is given here -->
+        &nbsp; <span id="pagetitle">Admin Account</span></h4>pagetitle id is given here
         <div class="marquee-content" style="align:center; padding-top:200px;min-height:750px;background-color:cyan">
-     		<h1><center>Hey Dude! Welcome to Our Tender Management system</center></h1>
-     		<h2><center>Here You can manage your tenders,view tenders and bid for tenders according to their deadline and base price</center></h2>
-     		<h3><center>Go on the about menu section links to explore the site</center></h3>
-     		<h3><center>You can also update your profile, change password and can explore many more things!</center></h3>
+     		 -->
+     <table style="background-color:white">		
+     		<tr style="color:red; font-size:22px; font-weight:bold;background-color:green"> 
+     			 <td>Application Id </td> <td> Tender Id </td> <td>Bid Amount</td> <td>Deadline</td> 
+     									<td>Status</td> </tr>
+     		<%
+     			BidderDao dao = new BidderDaoImpl();
+     			VendorBean vendor = (VendorBean) session.getAttribute("vendordata");
+     			List<BidderBean> bidderList = dao.getAllBidsOfaVendor(vendor.getId());
+     			
+     			for(BidderBean bidder: bidderList){
+     			
+     				
+     				%>
+     				
      
-      </div>
+     		<tr> <td><%=bidder.getBidId() %></td> <td><%=bidder.getTenderId() %></td> <td><%=bidder.getBidAmount()%></td> 
+     			 <td><textarea cols="50" style="text-align:center"readonly><%=bidder.getBidDeadline() %></textarea></td> <td><%=bidder.getBidStatus() %></td> </tr>
+     		
+     		
+     
+ <% } %>
+    </table>	
+  </form> 		
+      <!-- </div>
+     </div> -->
      </div>
-     </div>
-      
-      
-      
-      
-     <a><h1></h1></a>
       
     </div> <!-- End of container-fluid-->
 	

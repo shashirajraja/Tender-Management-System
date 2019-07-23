@@ -10,21 +10,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.hit.beans.NoticeBean;
 import com.hit.dao.NoticeDao;
 import com.hit.dao.NoticeDaoImpl;
 
 /**
- * Servlet implementation class UpdateNotice
+ * Servlet implementation class RemoveNoticeSrv
  */
-@WebServlet("/UpdateNotice")
-public class UpdateNotice extends HttpServlet {
+@WebServlet("/RemoveNoticeSrv")
+public class RemoveNoticeSrv extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateNotice() {
+    public RemoveNoticeSrv() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,32 +33,21 @@ public class UpdateNotice extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
-		int noticeId = Integer.parseInt(request.getParameter("id"));
-		
-		String noticeTitle = request.getParameter("title");
-		
-		String noticeDesc = request.getParameter("info");
-		
-		NoticeBean notice = new NoticeBean(noticeId, noticeTitle, noticeDesc);
+		int noticeId = Integer.parseInt(request.getParameter("noticeid"));
 		
 		NoticeDao dao = new NoticeDaoImpl();
 		
-		String status = dao.updateNotice(notice);
+		String status = dao.removeNotice(noticeId);
 		
 		PrintWriter pw = response.getWriter();
 		
-		RequestDispatcher rd = request.getRequestDispatcher("updateNotice.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("removeNotice.jsp");
 		
 		rd.include(request, response);
 		
-		System.out.println("id: "+noticeId+" title= "+noticeTitle+" desc: "+noticeDesc);
-		
-		
-		pw.print("<script>document.getElementById('show').innerHTML = '"+status+"'</script>");
+		pw.print("<script>document.getElementById('show').innerHTML='"+status+"'</script>");
 		
 		pw.close();
-		
 		
 	}
 

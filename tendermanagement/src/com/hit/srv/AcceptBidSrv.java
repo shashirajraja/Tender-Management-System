@@ -9,22 +9,23 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import com.hit.beans.NoticeBean;
-import com.hit.dao.NoticeDao;
-import com.hit.dao.NoticeDaoImpl;
+import com.hit.beans.VendorBean;
+import com.hit.dao.BidderDao;
+import com.hit.dao.BidderDaoImpl;
 
 /**
- * Servlet implementation class UpdateNotice
+ * Servlet implementation class AcceptBidSrv
  */
-@WebServlet("/UpdateNotice")
-public class UpdateNotice extends HttpServlet {
+@WebServlet("/AcceptBidSrv")
+public class AcceptBidSrv extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateNotice() {
+    public AcceptBidSrv() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,34 +34,23 @@ public class UpdateNotice extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String bidderId = request.getParameter("bid");
+		String tenderId = request.getParameter("tid");
+		String vendorId = request.getParameter("vid");
 		
+		BidderDao dao = new BidderDaoImpl();
 		
-		int noticeId = Integer.parseInt(request.getParameter("id"));
-		
-		String noticeTitle = request.getParameter("title");
-		
-		String noticeDesc = request.getParameter("info");
-		
-		NoticeBean notice = new NoticeBean(noticeId, noticeTitle, noticeDesc);
-		
-		NoticeDao dao = new NoticeDaoImpl();
-		
-		String status = dao.updateNotice(notice);
+		String status = dao.acceptBid(bidderId, tenderId, vendorId);
 		
 		PrintWriter pw = response.getWriter();
 		
-		RequestDispatcher rd = request.getRequestDispatcher("updateNotice.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("viewTenderBidsForm.jsp");
 		
 		rd.include(request, response);
 		
-		System.out.println("id: "+noticeId+" title= "+noticeTitle+" desc: "+noticeDesc);
-		
-		
-		pw.print("<script>document.getElementById('show').innerHTML = '"+status+"'</script>");
+		pw.print("<script>document.getElementById('show').innerHTML='"+status+"'</script>");
 		
 		pw.close();
-		
-		
 	}
 
 	/**

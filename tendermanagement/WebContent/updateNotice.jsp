@@ -129,6 +129,11 @@
      		 	 Edit the Given Notice Title and Description in the given box and click on update
      		 	 
      		 </div>
+     		 
+     		 
+     		 
+     		 
+     		 
    <form action="UpdateNotice" method="post">
      <table style="background-color:white">		
      		<tr style="color:white; font-size:22px; font-weight:bold;background-color:#660033">
@@ -148,16 +153,22 @@
      				%>
      				
      			
-     		<tr> <td> <input type="hidden" name="id" value="<%=noticeId %>"><%= noticeId %> </td> <td style="width:120%;"><textarea name="title"><%=noticeTitle %></textarea></td> <td><textarea name="info" cols="60"><%=noticeDesc %></textarea></td> <td><input id="button" type="submit" value="Update"></td> </tr>
-     		
-     		
+     		<tr> <td> <input type="hidden" name="id" value="<%=noticeId %>"><%= noticeId %> </td> 
+     			<td style="width:120%;"><textarea name="title"><%=noticeTitle %></textarea></td> 
+     				<td><textarea name="info" cols="60"><%=noticeDesc %></textarea></td>
+     							 <td><input id="button" type="submit" value="Update"></td> </tr>
  
- <% } 
- 
- 
- %>
+ <% } %>
+
     </table>	
    </form>	
+   
+   
+   
+   
+   
+   
+   
       <!-- </div>
      </div> -->
      </div>

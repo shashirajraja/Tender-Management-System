@@ -16,4 +16,5 @@ public interface VendorDao {
 	
 	public String changePassword(String vendorId,String oldPassword,String newPassword);
 	
+	public VendorBean getVendorDataById(String vendorId);
 }

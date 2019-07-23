@@ -6,7 +6,7 @@ import com.hit.beans.BidderBean;
 
 public interface BidderDao {
 
-    public String acceptBid(String applicationId);
+    public String acceptBid(String applicationId,String tenderId,String vendorId);
 	
 	public String rejectBid(String applicationId);
 	

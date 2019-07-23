@@ -15,16 +15,17 @@
               <a href="vendorMenu.jsp">
                 <span class="glyphicon glyphicon-home"></span> Home</a> <!--Home button is here -->
             </li>
-            <li class="dropdown">
+            <li><a>About Us</a></li>
+            <!-- <li class="dropdown">
                 <a class="dropdown-toggle " data-toggle="dropdown" data-animations="fadeIn fadeInLeft fadeInUp fadeInRight" data-hover="dropdown">About Us
-                    <span class="caret"></span></a>    <!--Dropdown under about us category -->
+                    <span class="caret"></span></a>    Dropdown under about us category
                 <ul class="dropdown-menu">
                   <li><a href="#">Our Goal</a></li>
                   <li><a href="#">About Admin</a></li>
                   <li><a href="#">Companies/Vendors</a></li>
                   <li><a href="#">Contact Us</a></li>
                 </ul>
-              </li>
+              </li> -->
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-animations="fadeIn fadeInLeft fadeInUp fadeInRight"> 
                 <!--Dropdown under tender category -->
@@ -33,7 +34,7 @@
                 <ul class="dropdown-menu">
                   <li><a href="vendorViewTender.jsp">View all Tenders</a></li>
                   <li><a href="bidTender.jsp">Bid for a Tender</a></li>
-                  <li><a href="#">Bidding History</a></li>
+                  <li><a href="bidHistory.jsp">Bidding History</a></li>
                   <!-- <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-animations="default" href="#">Receipt
                     <span class="caret"></span></a>
@@ -43,7 +44,7 @@
                           <li><a href="#">Approval Receipt</a></li>
                       </ul>
                   </li> -->
-                  <li><a href="#">Bid Status</a></li>
+                  <li><a href="bidHistory.jsp">Bid Status</a></li>
                 </ul>
               </li>
             
@@ -64,7 +65,7 @@
               <!-- Form for searching any tenders or items-->
               <form class="navbar-form hidden-xs" action="vendorSearchTender.jsp"  >
                 <div class="form-group" >
-                  <input type="text" class="form-control" placeholder="Find Tenders by Name or TenderId" style="margin-left:20px;" required>
+                  <input type="text" class="form-control" placeholder="Find Tenders by Name or TenderId" style="margin-left:120px;" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Search</button>
               </form>

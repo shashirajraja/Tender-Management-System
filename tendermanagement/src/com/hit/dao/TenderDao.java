@@ -16,5 +16,10 @@ public interface TenderDao {
 	
 	public String updateTender(TenderBean tender);
 	
+	public TenderBean getTenderDataById(String tenderId);
+	
+	public String getTenderStatus(String tenderId);
+	
+	public String assignTender(String tenderId,String vendorId,String bidderId);
 	
 }

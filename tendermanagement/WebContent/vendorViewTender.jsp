@@ -100,7 +100,6 @@
         &nbsp; <span id="pagetitle">Admin Account</span></h4>pagetitle id is given here
         <div class="marquee-content" style="align:center; padding-top:200px;min-height:750px;background-color:cyan">
      		 -->
-   <form action="BidTenderSrv">
      <table style="background-color:white">		
      		<tr style="color:red; font-size:22px; font-weight:bold;background-color:green"> 
      			 <td>Tender Name </td> <td> Tender Type </td> <td>Base Price</td> <td>Location</td> 
@@ -128,7 +127,6 @@
      
  <% } %>
     </table>	
-  </form> 		
       <!-- </div>
      </div> -->
      </div>

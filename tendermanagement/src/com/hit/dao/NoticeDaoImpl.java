@@ -27,7 +27,7 @@ public class NoticeDaoImpl implements NoticeDao{
 			int x = ps.executeUpdate();
 			
 			if(x>0){
-				status = "--Notice No: "+noticeId+" Removed Successfully--";
+				status = "Notice No: "+noticeId+" has been Removed Successfully!";
 			}
 			
 		} catch (SQLException e) {
@@ -97,7 +97,7 @@ public class NoticeDaoImpl implements NoticeDao{
 		ResultSet rs = null;
 		
 		try {
-			ps = con.prepareStatement("select * from notice order by sysdate() asc");
+			ps = con.prepareStatement("select * from notice order by sysdate() asc limit 8");
 			
 			rs = ps.executeQuery();
 			
@@ -140,18 +140,24 @@ public class NoticeDaoImpl implements NoticeDao{
 		PreparedStatement ps = null;
 		
 		try {
+			
 			ps = con.prepareStatement("update notice set title=? , info=? where id=?");
 			
 			ps.setString(1, notice.getNoticeTitle());
+			
 			ps.setString(2, notice.getNoticeInfo());
+			
 			ps.setInt(3, notice.getNoticeId());
 			
 			int x = ps.executeUpdate();
+			
 			if(x>0)
 				status = "Notice Updated Successfully!";
 			
 		} catch (SQLException e) {
+		
 			status = "Error: "+e.getMessage();
+			
 			e.printStackTrace();
 		}
 		finally{

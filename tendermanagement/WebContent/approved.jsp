@@ -17,21 +17,19 @@
               
               <%
               try{
-            	  PreparedStatement ps = con.prepareStatement("select * from approvedtender order by sysdate() asc");
+            	  PreparedStatement ps = con.prepareStatement("select * from tenderstatus order by sysdate() asc limit 6");
             	  ResultSet rs = ps.executeQuery();
-            	  int i=0;
+            	  
             	  while(rs.next()){
-            		  String id = rs.getString("id");
-            		  String  name=rs.getString("name");
+            		  String bid = rs.getString("bid");
+            		  String  tid=rs.getString("tid");
             		%>
             		<hr>
-            		<p style="color:red;">Application Id: <%=id %></p>
-            		<p style"color:black">Project Name: <%=name %></p>
+            		<p style="color:red;">Application Id:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= bid %></p>
+            		<p style"color:black">Assigned Project Id: &nbsp;&nbsp;<%=tid %></p>
             		
             		<%
-            		i++;
-            		if(i==10)
-            			break;
+            		
             	  }
               }
               catch(SQLException e){

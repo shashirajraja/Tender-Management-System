@@ -15,15 +15,15 @@
               <a href="adminHome.jsp">
                 <span class="glyphicon glyphicon-home"></span> Home</a> <!--Home button is here -->
             </li>
-            <li class="dropdown">
+            <!-- <li class="dropdown">
                 <a class="dropdown-toggle " data-toggle="dropdown" data-animations="fadeIn fadeInLeft fadeInUp fadeInRight" data-hover="dropdown">Vendors
-                    <span class="caret"></span></a>    <!--Dropdown under about us category -->
+                    <span class="caret"></span></a>    Dropdown under about us category
                 <ul class="dropdown-menu">
                   <li><a href="viewVendor.jsp">View All Vendors</a></li>
                   <li><a href="ApproveVendor">Approve Vendors</a></li>
                   <li><a href="vendorDetail.jsp">Vendor Detail</a></li>
                 </ul>
-              </li>
+              </li> -->
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-animations="fadeIn fadeInLeft fadeInUp fadeInRight"> 
                 <!--Dropdown under tender category -->
@@ -32,7 +32,7 @@
                 <ul class="dropdown-menu">
                   <li><a href="viewTender.jsp">View all Tenders</a></li>
                   <li><a href="createTender.jsp">Create New Tender</a></li>
-                  <li><a href="#">View Tender Bids</a></li>
+                  <li><a href="viewTenderBids.jsp">View Tender Bids</a></li>
                   <li><a href="#">Accept a bid</a></li>
                   </ul>
              </li>
@@ -57,7 +57,7 @@
               <!-- Form for searching any tenders or items-->
               <form class="navbar-form hidden-xs" action="searchTender.jsp"  >
                 <div class="form-group" >
-                  <input type="text" name="tid" class="form-control" placeholder="Find Tenders by name or tenderId" style="margin-left:10px;" required>
+                  <input type="text" name="tid" class="form-control" placeholder="Find Tenders by name or tenderId" style="margin-left:150px;" required>
                 </div>
                
                 <button type="submit" class="btn btn-primary" >Search</button>

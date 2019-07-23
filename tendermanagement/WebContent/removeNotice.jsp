@@ -109,7 +109,13 @@
         &nbsp; <span id="pagetitle">Admin Account</span></h4>pagetitle id is given here
         <div class="marquee-content" style="align:center; padding-top:200px;min-height:750px;background-color:cyan">
      		 -->
-   <form>
+		<table style="border-radius:10px" >
+			<tr >
+				<td id="show" style="min-width:900px;color:green;background-color:white">Delete Notices</td>
+			</tr>
+		</table>
+		
+		
      <table style="background-color:white">		
      		<tr style="color:white; font-size:22px; font-weight:bold;background-color:#660033">
      		 <td>Notice Id</td> <td>Title </td> <td> Description</td> <td>Remove ? </td></tr>
@@ -126,16 +132,15 @@
      				String noticeDesc = notice.getNoticeInfo();
      				
      				%>
-     				
      
-     		<tr> <td><input type="hidden" name="id" value="<%=noticeId %>"><%=noticeId %></td> <td><%=noticeTitle %></td> <td cols="70"><%=noticeDesc %></td> <td><input type="submit" value="Delete Notice"></td> </tr>
+     		<tr> <td><%=noticeId %></td> <td><%=noticeTitle %></td> <td cols="70"><%=noticeDesc %></td> <td><a href="RemoveNoticeSrv?noticeid=<%= noticeId%>"><button>Remove</button></a></td> </tr>
      		
      		
      
  <% } %>
     </table>	
   
-   </form>		
+		
       <!-- </div>
      </div> -->
      </div>

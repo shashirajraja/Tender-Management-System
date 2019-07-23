@@ -15,16 +15,16 @@
               <a href="index.jsp">
                 <span class="glyphicon glyphicon-home"></span> Home</a> <!--Home button is here -->
             </li>
-            <li class="dropdown">
+            <!-- <li class="dropdown">
                 <a class="dropdown-toggle " data-toggle="dropdown" data-animations="fadeIn fadeInLeft fadeInUp fadeInRight" data-hover="dropdown">About Us
-                    <span class="caret"></span></a>    <!--Dropdown under about us category -->
+                    <span class="caret"></span></a>    Dropdown under about us category
                 <ul class="dropdown-menu">
                   <li><a href="#">Our Goal</a></li>
                   <li><a href="#">About Admin</a></li>
                   <li><a href="#">Companies/Vendors</a></li>
                   <li><a href="#">Contact Us</a></li>
                 </ul>
-              </li>
+              </li> -->
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-animations="fadeIn fadeInLeft fadeInUp fadeInRight"> 
                 <!--Dropdown under tender category -->
@@ -34,7 +34,7 @@
                   <li><a href="vendorViewTender.jsp">View all Tenders</a></li>
                   <li><a href="loginFailed.jsp">Apply for a Tender</a></li>
                   <li><a href="loginFailed.jsp">Bid Approval Status</a></li>
-                  <li class="dropdown">
+                  <!-- <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-animations="default" href="#">Receipt
                     <span class="caret"></span></a>
                     
@@ -42,8 +42,8 @@
                           <li><a href="loginFailed.jsp">Application Receipt</a></li>
                           <li><a href="loginFailed.jsp">Approval Receipt</a></li>
                       </ul>
-                  </li>
-                  <li><a href="loginFailed.jsp">Companies</a></li>
+                  </li> 
+                  <li><a href="loginFailed.jsp">Companies</a></li>-->
                 </ul>
               </li>
             <li class="dropdown">              <!--Dropdown under Vendors Category -->

@@ -119,7 +119,7 @@
      				%>
      				
      
-     		<tr> <td><%=tid %></td> <td><%=tname %></td> <td><%=ttype %></td> <td><%=tprice %></td> <td><%=tloc %></td> <td><%=tdeadline %></td> <td><%=tdesc %></td> </tr>
+     		<tr> <td><a href="viewTenderBidsForm.jsp?tid=<%=tid%>"><%=tid %></a></td> <td><%=tname %></td> <td><%=ttype %></td> <td><%=tprice %></td> <td><%=tloc %></td> <td><%=tdeadline %></td> <td><%=tdesc %></td> </tr>
      		
      		
      

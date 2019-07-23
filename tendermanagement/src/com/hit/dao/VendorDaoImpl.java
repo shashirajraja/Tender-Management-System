@@ -258,6 +258,44 @@ public class VendorDaoImpl  implements VendorDao{
 		return status;
 	}
 
+	@Override
+	public VendorBean getVendorDataById(String vendorId) {
+
+		VendorBean vendor = null;
+		Connection con = DBUtil.provideConnection();
+		
+		PreparedStatement ps = null;
+		
+		ResultSet rs = null;
+		
+		try {
+			ps = con.prepareStatement("select * from vendor where vid=?");
+			
+			ps.setString(1, vendorId);
+			
+			rs = ps.executeQuery();
+			
+			if(rs.next()){
+				vendor = new VendorBean(rs.getString("vid"),rs.getString("vname"), rs.getString("vmob"), rs.getString("vemail"), rs.getString("address"), rs.getString("company"), rs.getString("password"));
+			
+			}
+			
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+		finally{
+			
+			DBUtil.closeConnection(con);
+			
+			DBUtil.closeConnection(rs);
+			
+			DBUtil.closeConnection(ps);
+		}
+		
+		return vendor;
+	}
+
 	
 
 }

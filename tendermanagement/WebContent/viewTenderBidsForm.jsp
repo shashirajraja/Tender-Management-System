@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
- <%@page import="java.sql.*, com.hit.utility.DBUtil, javax.servlet.annotation.WebServlet" errorPage="errorpage.jsp"%>
+ <%@page import="java.sql.*,com.hit.dao.BidderDao,com.hit.dao.BidderDaoImpl, java.lang.Integer,com.hit.beans.BidderBean,com.hit.utility.DBUtil,java.util.List,java.util.ArrayList,com.hit.dao.TenderDaoImpl,com.hit.dao.TenderDao, javax.servlet.annotation.WebServlet" errorPage="errorpage.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
   <head>
@@ -19,27 +19,73 @@
     <link href="https://fonts.googleapis.com/css?family=Black+Ops+One" rel="stylesheet">
     <link href="css/bootstrap-dropdownhover.min.css">
     <link rel="stylesheet" href="css/style2.css">
+    <style>
+    th,tr{
+    	height:50px;
+    	border:2px black solid;
+    	
+    }
+   
+    td{
+    	min-width:145px;
+    	border: 2px dashed black;
+    }
+ table{
+    	text-align:center;
+    	border-radius:10px;
+		border:1px red solid;
+		text-align:center;
+		background-color: cyan;
+		margin:20px;
+		color:blue;
+		font-style:normal;
+		font-size: 15.5px;
+		padding:20px;
+		cellpadding:10;
+		cellspacing:10;
+    }
+    tr:hover{
+    	background-color: #DEBEE1;
+    	color:black;
+    } 
+    textarea:hover{
+    	background-color:#DEBEE1;
+    	color:black;
+    }
+    button:hover{
+    	background-color:red;
+    	color:white;
+    	font-size:bold;
+    }
+    #bt1:hover{
+    
+    	background-color:green;
+    	color:white;
+    }
+    </style>
   </head>
 <body>
+
 
 	<%
 		String user = (String)session.getAttribute("user");
 		String uname = (String)session.getAttribute("username");
 		String pword = (String)session.getAttribute("password");
 		
-		if(!user.equalsIgnoreCase("user") || uname.equals("") || pword.equals("")){
+		if(!user.equalsIgnoreCase("admin") || uname.equals("") || pword.equals("")){
 			
 			response.sendRedirect("loginFailed.jsp");
 			
 		}
 	
 	%>
-	
+
+
 	<!-- Including the header of the page  -->
 	
 	<jsp:include page="header.jsp"></jsp:include>
 	
-	<jsp:include page="vendorMenu.jsp"></jsp:include>
+	<jsp:include page="adminMenu.jsp"></jsp:include>
 	
 	<div class="clearfix hidden-sm hidden-xs" style="color:white;background-color: green; margin-top:-15px; margin-bottom: 12px"><marquee>Welcome to Tender Management Site</marquee>
  </div> <!--A green color line between header and body part-->
@@ -63,23 +109,48 @@
       
           
    <div class="col-md-8">
-    <div class="marquee" style="border:2px black hidden; background-color:white">
+    <!-- <div class="marquee" style="border:2px black hidden; background-color:white">
         <h4 style="background-color:black; margin-top:-1.8px; margin-bottom:1px;padding: 5px; text-align: center;color:red;font-weight:bold">
-        &nbsp; <span id="pagetitle">VENDOR ACCOUNT</span></h4><!-- pagetitle id is given here -->
+        &nbsp; <span id="pagetitle">Admin Account</span></h4>pagetitle id is given here
         <div class="marquee-content" style="align:center; padding-top:200px;min-height:750px;background-color:cyan">
-     		<h1><center>Hey Dude! Welcome to Our Tender Management system</center></h1>
-     		<h2><center>Here You can manage your tenders,view tenders and bid for tenders according to their deadline and base price</center></h2>
-     		<h3><center>Go on the about menu section links to explore the site</center></h3>
-     		<h3><center>You can also update your profile, change password and can explore many more things!</center></h3>
+     		 -->
+     		 
+     <table style="border-radius:10px" >
+			<tr >
+				<td id="show" style="min-width:1000px;background-color:white;min-height:0px;color:red">Tender Bids For TendorId: <%=request.getParameter("tid") %></td>
+			</tr>
+	</table>
+				 
+     		 
+     <table style="background-color:white">		
+     		<tr style="color:white; font-size:22px; font-weight:bold;background-color:#660033">
+     		 <td>Bidder Id</td> <td>Vendor Id </td> <td> Bid Amount</td> <td> Deadline </td>
+     		 		<td>Status</td><td>Accept</td><td>Reject</td></tr>
+     		<%
+     				
+     			BidderDao dao = new BidderDaoImpl();
+     			
+     			List<BidderBean> bidderList = dao.getAllBidsOfaTender(request.getParameter("tid"));
+     			
+     			for(BidderBean bidder: bidderList){
+     		
+     				%>
+     				
      
-      </div>
+     		<tr> <td><%=bidder.getBidId() %></td> <td><%=bidder.getVendorId() %></td> <td><%=bidder.getBidAmount() %></td>
+     		 <td><%=bidder.getBidDeadline() %></td> <td><%=bidder.getBidStatus()%></td> 
+     		 	<td><a href="AcceptBidSrv?bid=<%= bidder.getBidId()%>&tid=<%=bidder.getTenderId()%>&vid=<%= bidder.getVendorId()%>"><button id="bt1">Accept</button></a></td>
+     		 	<td><a href="RejectBidSrv?bid=<%= bidder.getBidId()%>"><button >Reject</button></a></td>
+     		 </tr>
+     		
+     		
+     
+ <% } %>
+    </table>	
+     		
+      <!-- </div>
+     </div> -->
      </div>
-     </div>
-      
-      
-      
-      
-     <a><h1></h1></a>
       
     </div> <!-- End of container-fluid-->
 	

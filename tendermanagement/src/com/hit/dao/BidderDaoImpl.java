@@ -15,24 +15,39 @@ public class BidderDaoImpl implements BidderDao{
 	
 	
 	@Override
-	public String acceptBid(String applicationId) {
+	public String acceptBid(String applicationId,String tenderId,String vendorId) {
 		String status = "Bid Acceptance Failed";
 		
 		Connection con = DBUtil.provideConnection();
 		
 		PreparedStatement ps = null;
+		PreparedStatement pst = null;
+		ResultSet rs = null;
 		
 		try {
-			ps = con.prepareStatement("update bidder set status = ? where bid=? and status=?");
 			
-			ps.setString(1, "Accepted");
-			ps.setString(2, applicationId);
-			ps.setString(3, "Pending");
+			ps = con.prepareStatement("select * from tenderstatus where tid=?");
+			ps.setString(1, tenderId);
+			rs = ps.executeQuery();
+			if(rs.next()){
+				
+				status = "Project Already Assigned";
+			}
+			else{
 			
-			int x = ps.executeUpdate();
-			if(x>0)
-				status = "Bid Has Been Accepted Successfully!";
-			
+				pst = con.prepareStatement("update bidder set status = ? where bid=? and status=?");
+				
+				pst.setString(1, "Accepted");
+				pst.setString(2, applicationId);
+				pst.setString(3, "Pending");
+				
+				int x = pst.executeUpdate();
+				if(x>0){
+					status = "Bid Has Been Accepted Successfully!";
+					TenderDao dao = new TenderDaoImpl();
+					status = status + "<br>"+dao.assignTender(tenderId, vendorId,applicationId);
+				}
+			}
 		} catch (SQLException e) {
 
 			status = status + "Error: "+e.getMessage();
@@ -44,6 +59,7 @@ public class BidderDaoImpl implements BidderDao{
 			
 			DBUtil.closeConnection(ps);
 		}
+		System.out.println(status);
 		return status;
 	}
 	
@@ -98,7 +114,7 @@ public class BidderDaoImpl implements BidderDao{
 		PreparedStatement ps = null;
 		
 		try {
-			ps = con.prepareStatement("insert into bidder values(?,?,?,?,?,?,?)");
+			ps = con.prepareStatement("insert into bidder values(?,?,?,?,?,?)");
 			
 			ps.setString(1, bidId);
 			

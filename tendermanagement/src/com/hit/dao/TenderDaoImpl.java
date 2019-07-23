@@ -250,4 +250,131 @@ boolean flag=false;
 		return status;
 	}
 
+	@Override
+	public TenderBean getTenderDataById(String tid) {
+		
+		TenderBean tender = null;
+		
+		Connection con = DBUtil.provideConnection();
+		
+		PreparedStatement ps = null;
+		PreparedStatement pst = null;
+		try {
+			
+			ps = con.prepareStatement("select * from tender where tid=?");
+			
+			ps.setString(1, tid);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			if(rs.next()){
+			String id =  	rs.getString(1);
+			String name=	rs.getString(2);
+			String type=	rs.getString(3);
+			int price   =	    rs.getInt(4);
+			String desc=	rs.getString(5);
+			String deadline=rs.getString(6);
+			String location=rs.getString(7);
+			
+			tender=new TenderBean(id, name, type, price, desc, deadline, location);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally{
+			
+			DBUtil.closeConnection(ps);
+			
+			DBUtil.closeConnection(pst);
+			
+			DBUtil.closeConnection(con);
+			
+		}
+		
+		
+		
+		return tender;
+	}
+
+	@Override
+	public String getTenderStatus(String tenderId) {
+		String status = "Not Assigned";
+		
+		Connection con = DBUtil.provideConnection();
+		
+		PreparedStatement ps = null;
+		
+		ResultSet rs = null;
+		
+		try {
+			ps = con.prepareStatement("select * from tenderstatus where tid=?");
+			
+			ps.setString(1, tenderId);
+			
+			rs = ps.executeQuery();
+			
+			if(rs.next()){
+				//Tender Has been Assigned 
+				
+				status = "Assigned";
+			}
+			
+		} catch (SQLException e) {
+			status = "Error: "+e.getMessage();
+			e.printStackTrace();
+		}
+		finally{
+			
+			DBUtil.closeConnection(con);
+			DBUtil.closeConnection(ps);
+			DBUtil.closeConnection(rs);
+			
+		}
+		return status;
+	}
+
+	@Override
+	public String assignTender(String tenderId, String vendorId,String bidderId) {
+		String status = "Tender Assigning failed";
+		
+		Connection con = DBUtil.provideConnection();
+		
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		try {
+			ps = con.prepareStatement("select * from tenderstatus where tid=?");
+			ps.setString(1, tenderId);
+			
+			rs = ps.executeQuery();
+			
+			if(rs.next()){
+				
+				status = "Tender is Already Assigned to Vendor: "+rs.getString("vid");
+			}
+			else{
+				
+				ps = con.prepareStatement("insert into tenderstatus values(?,?,?,?)");
+				ps.setString(1,tenderId);
+				ps.setString(2, bidderId);
+				ps.setString(3, "Assigned");
+				ps.setString(4, vendorId);
+
+				int k = ps.executeUpdate();
+				if(k>0){
+					status = "Tender: "+tenderId+" has been Assigned to vendor: "+vendorId;
+				}
+				
+			}
+		} catch (SQLException e) {
+			status = status + e.getMessage();
+			e.printStackTrace();
+		}
+		
+		
+		return status;
+	}
+
 }
