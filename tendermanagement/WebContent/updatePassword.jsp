@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
- <%@page import="java.sql.*, com.hit.utility.DBUtil, javax.servlet.annotation.WebServlet" errorPage="errorpage.jsp"%>
+ <%@page import="java.sql.*, com.hit.utility.DBUtil, javax.servlet.annotation.WebServlet, com.hit.beans.VendorBean" errorPage="errorpage.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
   <head>
@@ -19,30 +19,30 @@
     <link href="https://fonts.googleapis.com/css?family=Black+Ops+One" rel="stylesheet">
     <link href="css/bootstrap-dropdownhover.min.css">
     <link rel="stylesheet" href="css/style2.css">
-    <style>
-	.tab{
-	border-radius:10px;
-		border:1px black solid;
-		
-		background-color: #FFE5CC;
-		margin-left: 25%;
-		width:450px;
-		color:green;
-		font-weight: bold;
-		font-style:normal;
-		text-align:center;
-		font-size: 20px;
-		margin-bottom:10px;
-		padding:20px;
-	}
-    </style>
+    
   </head>
 <body>
+
+
+	<%
+		String user = (String)session.getAttribute("user");
+		String uname = (String)session.getAttribute("username");
+		String pword = (String)session.getAttribute("password");
+		
+		if(user== null || !user.equalsIgnoreCase("user") || uname.equals("") || pword.equals("")){
+			
+			response.sendRedirect("loginFailed.jsp");
+			
+		}
+	
+	%>
+
+
 	<!-- Including the header of the page  -->
 	
-	<jsp:include page="loginHeader.jsp"></jsp:include>
+	<jsp:include page="header.jsp"></jsp:include>
 	
-	<jsp:include page="menu.jsp"></jsp:include>
+	<jsp:include page="vendorMenu.jsp"></jsp:include>
 	
 	<div class="clearfix hidden-sm hidden-xs" style="color:white;background-color: green; margin-top:-15px; margin-bottom: 12px"><marquee>Welcome to Tender Management Site</marquee>
  </div> <!--A green color line between header and body part-->
@@ -66,47 +66,39 @@
       <%-- <jsp:include page="login.jsp"></jsp:include> --%>
       
    <div class="col-md-8">
-    <div class="marquee" style="border:2px black hidden; background-color:white">
+    <!-- <div class="marquee" style="border:2px black hidden; background-color:white">
         <h4 style="background-color:black; margin-top:-1.8px; margin-bottom:1px;padding: 5px; text-align: center;color:red;font-weight:bold">
-        &nbsp; <span id="pagetitle">Vendor Registration</span></h4><!-- pagetitle id is given here -->
+        &nbsp; <span id="pagetitle">Tender Creation</span></h4>pagetitle id is given here
         <div  class="marquee-content" style="align:center; padding-top:5px;min-height:750px;background-color:cyan">
-      
-      <table class="tab hd " style="color:blue;margin-bottom:50px;background-color:white; ">
-	
-			<tr>
-				<td id="show"></td>
-			</tr>
-	</table>
-      
-      
-      <table class="tab hd brown">
-		<tr>
-			<td style="color:brown">Register New Vendor</td>
-		</tr>
-	</table>
+      --> 
 
-	<table class="tab hd blue" border="0px" cellpadding="10" cellspacing="10">
-		
-		<tr>
-			<td>
-				<form action="RegisterSrv" method="post">
-				<br>
-					Vendor Name: <input type="text" name="vname" required="required"><br/><br/>
-					Email Id &nbsp; &nbsp; &nbsp; : <input type="email" name="vemail" required="required"><br/><br/>
-					Mobile No.&nbsp; &nbsp; : <input type="phone" name="vmob" required="required"><br/><br/>
-					Address: &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<input type="text" name="vaddr" required="required"><br/><br/>
-					Company &nbsp; &nbsp;&nbsp; : <input type="text" name="cname" required="required"><br/><br/>
-					Password: &nbsp; &nbsp;&nbsp; <input type="password" name="vpass" required="required"><br/><br/>
-					<input type="submit" value="Register" name="user">
-					
-				</form>
-			</td>
-			
-		</tr>  
-	</table>
+     	<table style="border-radius:10px" >
+			<tr >
+				<td id="show" style="min-width:700px;min-height:0px;color:blue">Edit Details And Click on Update</td>
+			</tr>
+		</table>
+            
+	<%
 	
-      </div>
-     </div>
+		VendorBean vendor = (VendorBean)session.getAttribute("vendordata");		
+	
+	%>
+
+	<form action="ChangePasswordSrv" method="post">
+		<table style="background-color:white">
+			<th colspan="2">Change Password<input type="hidden" name="vid" value="<%=vendor.getId() %>"></th>
+			<tr><td style="color:red">	Enter Old Password: </td><td> <input type="password" name="oldpassword" required="required"></td></tr>					
+			
+			<tr><td style="color:red">	Enter New Password: </td><td> <input type="password" name="newpassword" required="required"></td></tr>					
+			
+			<tr><td style="color:red">	Re-Enter New Password: </td><td> <input type="password" name="verifynewpassword" required="required"></td></tr>					
+			<tr><td colspan="2" align="center"><input type="submit" value="Change Password"></td></tr>
+			
+		</table>
+	</form>
+	
+      <!-- </div>
+     </div> -->
      </div>
       
       
@@ -124,5 +116,37 @@
 <!-- Including the footer of the page -->
     
 <jsp:include page="footer.jsp"></jsp:include>
+
 </body>
+<style>
+    input,textarea,select{
+    	min-width:450px;
+    	font-size:16px;
+    	background-color:#f8f8f8;
+    }
+    input:hover,textarea:hover,select:hover{
+    	min-width:450px;
+    	background-color:white;
+    }
+	table, th, td { 
+				margin-bottom:10px;
+				margin-left:20%;
+				font-size:20px;
+                border: 2px solid green; 
+                text-align:center; 
+                background-color:white;
+                color:#003399;
+            } 
+             td { 
+                padding: 12px; 
+                background-color:none; 
+            } 
+            th{
+            	padding:12px;
+            	background-color:#660033;
+            	color:white;
+            	font-weight:bold;
+            }
+
+</style>
 </html>

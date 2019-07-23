@@ -40,10 +40,9 @@
 		color:blue;
 		font-style:normal;
 		font-size: 15px;
-		padding:20px;
+		padding:10px;
 		cellpadding:10;
 		cellspacing:10;
-		margin-left : 0px;
     }
     
     
@@ -78,7 +77,7 @@
  
      <div class="container-fluid">
      
-     	<div class="notice">
+     	<%-- <div class="notice">
         <div class="col-md-3"style="margin-left:2%">
      		<% Connection con = DBUtil.provideConnection(); %>
      		
@@ -99,12 +98,10 @@
         <h4 style="background-color:black; margin-top:-1.8px; margin-bottom:1px;padding: 5px; text-align: center;color:red;font-weight:bold">
         &nbsp; <span id="pagetitle">Admin Account</span></h4>pagetitle id is given here
         <div class="marquee-content" style="align:center; padding-top:200px;min-height:750px;background-color:cyan">
-     		 -->
-   <form action="BidTenderSrv">
+     		 --> --%>
      <table style="background-color:white">		
-     		<tr style="color:red; font-size:22px; font-weight:bold;background-color:green"> 
-     			 <td>Tender Name </td> <td> Tender Type </td> <td>Base Price</td> <td>Location</td> 
-     									<td>Deadline</td> <td>Description</td> </tr>
+     		<tr style="color:red; font-size:22px; font-weight:bold;background-color:green"> <td>Tender Id</td> <td>Tender Name </td> <td> Tender Type </td> 
+     				<td>Tender Price</td> <td>Location</td> <td>Deadline</td> <td>Description</td><td>Status</td><td>Bid It</td> </tr>
      		<%
      			TenderDao dao = new TenderDaoImpl();
      			List<TenderBean> tenderList = dao.getAllTenders();
@@ -118,17 +115,20 @@
      				java.sql.Date tdeadline = new java.sql.Date(udeadline.getTime()); 
      				String tdesc = tender.getDesc();
      				
+     				//TODO next
+     				
      				%>
      				
      
-     		<tr> <td><%=tname %></td> <td><%=ttype %></td> <td><%=tprice %></td> 
-     				<td><%=tloc %></td> <td><%=tdeadline %></td> <td><textarea rows="2" cols="45"><%=tdesc %></textarea></td> </tr>
+     		<tr> <td><%=tid %></td> <td><%=tname %></td> <td><%=ttype %></td> <td><%=tprice %></td> <td><%=tloc %></td> <td><%=tdeadline %>
+     		
+     		</td> <td><textarea readonly cols="35" rows="2"><%=tdesc %></textarea></td> <td>Status</td> <td>Bid It</td></tr>
      		
      		
      
  <% } %>
     </table>	
-  </form> 		
+     		
       <!-- </div>
      </div> -->
      </div>

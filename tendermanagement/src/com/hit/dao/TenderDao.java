@@ -16,7 +16,5 @@ public interface TenderDao {
 	
 	public String updateTender(TenderBean tender);
 	
-	public boolean acceptBid(String applicationId);
 	
-	public boolean rejectBid(String applicationId);
 }

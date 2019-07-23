@@ -60,7 +60,7 @@ public class RegisterSrv extends HttpServlet {
 	
 		PrintWriter pw = response.getWriter();
 		
-		RequestDispatcher rd = request.getRequestDispatcher("register.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
 		
 		rd.include(request, response);
 		

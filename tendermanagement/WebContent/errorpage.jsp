@@ -8,8 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body bgcolor="red" color="white" align="center">
-	<h2>There is some erro while processing</h2><br><br>
-	<h3><%= exception.getMessage() %></h3>
+	<h2>There is some Server error while processing</h2><br><br>
+	<h3>Server Error:  <%= exception.getMessage() %></h3>
 	<h2>Please try again!!</h2><br><br>
 	<h3> <a href="index.jsp"> Go to home page</a> </h3>
 </body>

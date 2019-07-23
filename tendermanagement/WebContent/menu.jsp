@@ -12,7 +12,7 @@
       <div id="collapsable-nav" class="collapse navbar-collapse hidden-lg hidden-md">
         <ul id="nav-list" class="nav navbar-nav navbar-left pull-left">
             <li id="navHomeButton">
-              <a href="vendorMenu.jsp">
+              <a href="index.jsp">
                 <span class="glyphicon glyphicon-home"></span> Home</a> <!--Home button is here -->
             </li>
             <li class="dropdown">
@@ -32,39 +32,37 @@
                     <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a href="vendorViewTender.jsp">View all Tenders</a></li>
-                  <li><a href="bidTender.jsp">Bid for a Tender</a></li>
-                  <li><a href="#">Bidding History</a></li>
-                  <!-- <li class="dropdown">
+                  <li><a href="loginFailed.jsp">Apply for a Tender</a></li>
+                  <li><a href="loginFailed.jsp">Bid Approval Status</a></li>
+                  <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-animations="default" href="#">Receipt
                     <span class="caret"></span></a>
                     
                     <ul class="dropdown-menu">
-                          <li><a href="index.html">Application Receipt</a></li>
-                          <li><a href="#">Approval Receipt</a></li>
+                          <li><a href="loginFailed.jsp">Application Receipt</a></li>
+                          <li><a href="loginFailed.jsp">Approval Receipt</a></li>
                       </ul>
-                  </li> -->
-                  <li><a href="#">Bid Status</a></li>
+                  </li>
+                  <li><a href="loginFailed.jsp">Companies</a></li>
                 </ul>
               </li>
-            
-              
-           <li class="dropdown"> <!--Dropdown under Vendors Category -->
-                <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-animations="fadeIn fadeInLeft fadeInUp fadeInRight">Account
+            <li class="dropdown">              <!--Dropdown under Vendors Category -->
+                <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-animations="fadeIn fadeInLeft fadeInUp fadeInRight">Vendors
                     <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="viewProfile.jsp">View Profile</a></li>
-                  <li><a href="updateProfile.jsp">Update Profile</a></li>
-                  <li><a href="updatePassword.jsp">Change Password</a></li>
-                   <li><a href="LogoutSrv">Logout</a></li>
+                  <li><a href="loginFailed.jsp">List of vendors</a></li>
+                  <li><a href="loginFailed.jsp">Approval Status</a></li>
+                  <li><a href="loginFailed.jsp">Search Vendor</a></li>
                 </ul>
               </li>
-              
-          
+           
+            <li><a href="register.jsp">Register</a></li>
+            
             <li>
               <!-- Form for searching any tenders or items-->
               <form class="navbar-form hidden-xs" action="vendorSearchTender.jsp"  >
                 <div class="form-group" >
-                  <input type="text" class="form-control" placeholder="Find Tenders by Name or TenderId" style="margin-left:20px;" required>
+                  <input type="text" class="form-control" placeholder="Find Tenders by name" style="margin-left: 150px;" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Search</button>
               </form>

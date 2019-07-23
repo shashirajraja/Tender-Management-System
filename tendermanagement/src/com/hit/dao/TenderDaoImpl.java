@@ -8,8 +8,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.hit.beans.BidderBean;
 import com.hit.beans.TenderBean;
 import com.hit.utility.DBUtil;
+import com.hit.utility.IDUtil;
 
 public class TenderDaoImpl implements TenderDao{
 
@@ -246,18 +248,6 @@ boolean flag=false;
 		}
 		
 		return status;
-	}
-
-	@Override
-	public boolean acceptBid(String applicationId) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean rejectBid(String applicationId) {
-		// TODO Auto-generated method stub
-		return false;
 	}
 
 }

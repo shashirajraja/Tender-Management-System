@@ -40,9 +40,9 @@
 <body>
 	<!-- Including the header of the page  -->
 	
-	<jsp:include page="header.jsp"></jsp:include>
+	<jsp:include page="loginHeader.jsp"></jsp:include>
 	
-	<jsp:include page="vendorMenu.jsp"></jsp:include>
+	<jsp:include page="menu.jsp"></jsp:include>
 	
 	<div class="clearfix hidden-sm hidden-xs" style="color:white;background-color: green; margin-top:-15px; margin-bottom: 12px"><marquee>Welcome to Tender Management Site</marquee>
  </div> <!--A green color line between header and body part-->

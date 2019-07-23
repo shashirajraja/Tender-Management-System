@@ -66,7 +66,7 @@ public class LoginSrv extends HttpServlet {
 				PrintWriter pw = response.getWriter();
 				RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
 				rd.include(request, response);
-				pw.print("<script>document.getElementById('show').innerHTML = 'Either Username or Password Invalid!!'</script>");
+				pw.print("<script>document.getElementById('show').innerHTML = 'Invalid Username or Password!!'</script>");
 			}
 			
 				
@@ -104,9 +104,11 @@ public class LoginSrv extends HttpServlet {
 					String mob = rs.getString("vmob");
 					VendorBean vendor = new VendorBean(vid,vname,mob,vemail,vaddr,cname,pass);
 					
-					request.setAttribute("vendordata", vendor);
+					session.setAttribute("vendordata", vendor);
 					
 					RequestDispatcher rd = request.getRequestDispatcher("vendorHome.jsp");
+					
+					
 					rd.forward(request, response);
 					
 				}
@@ -135,7 +137,8 @@ public class LoginSrv extends HttpServlet {
 						String mob = rs1.getString("vmob");
 						VendorBean vendor = new VendorBean(vid,vname,mob,vemail,vaddr,cname,pass);
 						
-						request.setAttribute("vendordata", vendor);
+						session.setAttribute("vendordata", vendor);  //We need the user data whole the session
+						
 						
 						RequestDispatcher rd = request.getRequestDispatcher("vendorHome.jsp");
 						rd.forward(request, response);

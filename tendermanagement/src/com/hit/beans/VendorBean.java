@@ -12,7 +12,7 @@ public class VendorBean implements Serializable{
 	private String address;
 	private String company;
 	private String password;
-	VendorBean(){}
+	public VendorBean(){}
 	public String getId() {
 		return id;
 	}

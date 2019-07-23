@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.hit.beans.VendorBean;
+
 /**
  * Servlet implementation class LogoutSrv
  */
@@ -35,7 +37,7 @@ public class LogoutSrv extends HttpServlet {
 		session.setAttribute("user", "");
 		session.setAttribute("username", "");
 		session.setAttribute("password", "");
-				
+		session.setAttribute("vendordata", new VendorBean());
 		
 		response.sendRedirect("logoutSuccess.jsp");
 	}

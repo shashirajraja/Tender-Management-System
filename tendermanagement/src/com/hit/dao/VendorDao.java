@@ -10,8 +10,10 @@ public interface VendorDao {
 	
 	public List<VendorBean> getAllVendors();
 	
-	public boolean validateVendor(String uid,String password);
+	public boolean validatePassword(String vendorId,String password);
 	
-	public boolean updateAccount(String uid,String password);
+	public String updateProfile(VendorBean vendor);
+	
+	public String changePassword(String vendorId,String oldPassword,String newPassword);
 	
 }

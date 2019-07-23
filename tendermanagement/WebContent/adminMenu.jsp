@@ -12,7 +12,7 @@
       <div id="collapsable-nav" class="collapse navbar-collapse hidden-lg hidden-md">
         <ul id="nav-list" class="nav navbar-nav navbar-left pull-left">
             <li id="navHomeButton">
-              <a href="index.jsp">
+              <a href="adminHome.jsp">
                 <span class="glyphicon glyphicon-home"></span> Home</a> <!--Home button is here -->
             </li>
             <li class="dropdown">
