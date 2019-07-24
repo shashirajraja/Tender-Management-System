@@ -12,10 +12,10 @@
       <div id="collapsable-nav" class="collapse navbar-collapse hidden-lg hidden-md">
         <ul id="nav-list" class="nav navbar-nav navbar-left pull-left">
             <li id="navHomeButton">
-              <a href="vendorMenu.jsp">
+              <a href="vendorHome.jsp">
                 <span class="glyphicon glyphicon-home"></span> Home</a> <!--Home button is here -->
             </li>
-            <li><a>About Us</a></li>
+            <li ><a href="vendorHome.jsp">About Us</a></li>
             <!-- <li class="dropdown">
                 <a class="dropdown-toggle " data-toggle="dropdown" data-animations="fadeIn fadeInLeft fadeInUp fadeInRight" data-hover="dropdown">About Us
                     <span class="caret"></span></a>    Dropdown under about us category

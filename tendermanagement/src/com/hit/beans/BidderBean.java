@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class BidderBean implements Serializable {
 	/**
@@ -66,10 +67,12 @@ public class BidderBean implements Serializable {
 		this.vendorId = vendorId;
 		this.tenderId = tenderId;
 		this.bidAmount = Integer.parseInt(bidAmount);
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat sdf = new SimpleDateFormat("EE MMM dd HH:mm:ss z yyyy",
+                Locale.ENGLISH);
 		java.util.Date udate = new java.util.Date();
 		
 		try {
+			
 			udate = sdf.parse(bidDeadline);
 		} catch (ParseException e) {
 			e.printStackTrace();

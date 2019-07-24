@@ -59,7 +59,6 @@ public class BidderDaoImpl implements BidderDao{
 			
 			DBUtil.closeConnection(ps);
 		}
-		System.out.println(status);
 		return status;
 	}
 	
