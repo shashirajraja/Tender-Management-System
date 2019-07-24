@@ -14,7 +14,7 @@ create table vendor(vid varchar(15) primary key,password varchar(20),vname varch
 		vemail varchar(40),company varchar(15),address varchar(100));
 
 
-create table tender(tid varchar(15) primary key,tname varchar(40),ttype varchar(20),
+create table tender(tid varchar(15) primary key,tname varchar(40),ttype varchar(20),tprice int,
 		    tdesc varchar(300),tdeadline date,tloc varchar(70));
 
 create table bidder (bid varchar(15) primary key,vid varchar(15) references vendor(vid),tid varchar(15) references tender(tid),
