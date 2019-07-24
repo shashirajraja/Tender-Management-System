@@ -13,4 +13,6 @@ public interface NoticeDao {
 	public List<NoticeBean> viewAllNotice();
 	
 	public String updateNotice(NoticeBean notice);
+	
+	public NoticeBean getNoticeById(int noticeId);
 }

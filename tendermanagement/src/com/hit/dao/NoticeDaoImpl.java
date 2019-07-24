@@ -169,6 +169,38 @@ public class NoticeDaoImpl implements NoticeDao{
 		return status;
 	}
 
+	@Override
+	public NoticeBean getNoticeById(int noticeId) {
+		NoticeBean notice = null;
+		
+		Connection con = DBUtil.provideConnection();
+		
+		PreparedStatement ps = null;
+		
+		ResultSet rs = null;
+		
+		try {
+			ps = con.prepareStatement("select * from notice where id=?");
+			
+			ps.setInt(1, noticeId);
+			
+			rs = ps.executeQuery();
+			
+			if(rs.next()){
+				notice = new NoticeBean(noticeId,rs.getString("title"),rs.getString("info"));
+				
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return notice;
+	}
+
 	
 
 }

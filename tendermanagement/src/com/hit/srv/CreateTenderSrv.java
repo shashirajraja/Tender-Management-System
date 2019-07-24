@@ -2,12 +2,14 @@ package com.hit.srv;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.hit.beans.TenderBean;
 import com.hit.dao.TenderDao;
@@ -33,6 +35,18 @@ public class CreateTenderSrv extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		HttpSession session = request.getSession();
+		String user = (String)session.getAttribute("user");
+		String uname = (String)session.getAttribute("username");
+		String pword = (String)session.getAttribute("password");
+		
+		if(!user.equalsIgnoreCase("admin") || uname.equals("") || pword.equals("")){
+			
+			response.sendRedirect("loginFailed.jsp");
+			
+		}
+		
 		
 		String tid= IDUtil.generateTenderId();
 		String tname= request.getParameter("tname").trim();

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
- <%@page import="java.sql.*, java.lang.Integer,com.hit.beans.NoticeBean,com.hit.utility.DBUtil,java.util.List,java.util.ArrayList,com.hit.dao.NoticeDaoImpl,com.hit.dao.NoticeDao, javax.servlet.annotation.WebServlet" errorPage="errorpage.jsp"%>
+ <%@page import="java.sql.*, com.hit.utility.DBUtil,com.hit.dao.VendorDao,com.hit.dao.VendorDaoImpl,com.hit.beans.VendorBean, javax.servlet.annotation.WebServlet" errorPage="errorpage.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
   <head>
@@ -19,65 +19,7 @@
     <link href="https://fonts.googleapis.com/css?family=Black+Ops+One" rel="stylesheet">
     <link href="css/bootstrap-dropdownhover.min.css">
     <link rel="stylesheet" href="css/style2.css">
-    <style>
-    th,tr{
-    	height:50px;
-    	border:2px black solid;
-    	
-    }
-   
-    td{
-    	min-width:145px;
-    	border: 2px dashed black;
-    }
- table{
-    	text-align:center;
-    	border-radius:10px;
-		border:1px red solid;
-		text-align:center;
-		background-color: cyan;
-		margin:20px;
-		color:blue;
-		font-style:normal;
-		font-size: 15.5px;
-		padding:20px;
-		cellpadding:10;
-		cellspacing:10;
-    }
-    tr:hover{
-    	background-color: #DEBEE1;
-    	color:black;
-    } 
-    textarea:hover{
-    	background-color:#ADBFAF;
-    	color:black;
-    }
-    .button:hover{
-    	background-color:green;
-    	color:white;
-    	font-size:bold;
-    }
-    #show{
-    	
-    	text-align:center;
-    	border-radius:10px;
-		border:1px red solid;
-		text-align:center;
-		background-color: cyan;
-		margin:20px;
-		color:black;
-		font-style:normal;
-		font-size: 15.5px;
-		padding:12px;
-		
     
-    }
-    button:hover{
-    
-    	background-color:green;
-    	color:white;
-    }
-    </style>
   </head>
 <body>
 
@@ -119,61 +61,46 @@
         </div>  <!-- End of col-md-3-->
       </div> <!-- End of notice class-->
       
-      
       <!-- Next part of same container-fluid in which galary or other information will be shown-->
       
-          
+      <%-- <jsp:include page="login.jsp"></jsp:include> --%>
+      
    <div class="col-md-8">
     <!-- <div class="marquee" style="border:2px black hidden; background-color:white">
         <h4 style="background-color:black; margin-top:-1.8px; margin-bottom:1px;padding: 5px; text-align: center;color:red;font-weight:bold">
-        &nbsp; <span id="pagetitle">Admin Account</span></h4>pagetitle id is given here
-        <div class="marquee-content" style="align:center; padding-top:200px;min-height:750px;background-color:cyan">
-     		 -->
-     		 <div id="show">
-     		 
-     		 	 Edit the Given Notice Title and Description in the given box and click on update
-     		 	 
-     		 </div>
-     		 
-     		 
-     		 
-     		 
-     		 
-     <table style="background-color:white">		
-     		<tr style="color:white; font-size:22px; font-weight:bold;background-color:#660033">
-     		 <td>Notice Id</td> <td>Title </td> <td> Description</td> <td>Update ? </td></tr>
-     		<%
-     			NoticeDao dao = new NoticeDaoImpl();
-     			List<NoticeBean> noticeList = dao.viewAllNotice();
-     			
-     			for(NoticeBean notice : noticeList){
-     				
-     				int noticeId = notice.getNoticeId();
-     				
-     				String noticeTitle = notice.getNoticeTitle();
-     				
-     				String noticeDesc = notice.getNoticeInfo();
-     				
-     				%>
-     				
-     			
-     		<tr> <td><%= noticeId %> </td> <td style="width:120%;"><textarea name="title" readonly><%=noticeTitle %></textarea></td> 
-     				<td><textarea name="info" cols="60" readonly><%=noticeDesc %></textarea></td>
-     							 <td><a href="updateNoticeForm.jsp?nid=<%=noticeId%>"><button>Update</button></a></td> </tr>
- 
- <% } %>
+        &nbsp; <span id="pagetitle">Tender Creation</span></h4>pagetitle id is given here
+        <div  class="marquee-content" style="align:center; padding-top:5px;min-height:750px;background-color:cyan">
+      --> 
 
-    </table>	
-   
-   
-   
-   
-   
-   
-   
+     	<table style="border-radius:10px" >
+			<tr >
+				<td id="show" style="min-width:632px;min-height:0px;color:blue">Vendor Details For Vendor Id : <%= request.getParameter("vid") %></td>
+			</tr>
+		</table>
+           <%
+           String vendorId = request.getParameter("vid");
+           
+           VendorDao dao = new VendorDaoImpl();
+           
+           VendorBean vendor = dao.getVendorDataById(vendorId);
+           
+           %> 
+	
+
+		<table style="background-color:white;margin-left:35%">
+			<th colspan="2">Vendor Contact Details</th>
+			<tr><td>	Vendor Name  : </td><td><%=vendor.getName()  %></td></tr>
+			<tr><td>    Mobile No  : </td><td><%=vendor.getMobile()  %></td></tr>
+		   <tr><td>Email Id  :</td><td><%=vendor.getEmail()  %></td></tr>
+	       <tr><td> Company Name :</td><td><%=vendor.getCompany()  %></td></tr>
+		   <tr><td>	Address  : </td><td><%=vendor.getAddress()  %></td></tr>
+					
+		</table>
+	
       <!-- </div>
      </div> -->
      </div>
+      
       
     </div> <!-- End of container-fluid-->
 	
@@ -189,5 +116,37 @@
 <!-- Including the footer of the page -->
     
 <jsp:include page="footer.jsp"></jsp:include>
+
 </body>
+<style>
+    input,textarea,select{
+    	min-width:450px;
+    	font-size:16px;
+    	background-color:#f8f8f8;
+    }
+    input:hover,textarea:hover,select:hover{
+    	min-width:450px;
+    	background-color:white;
+    }
+	table, th, td { 
+				margin-bottom:10px;
+				margin-left:20%;
+				font-size:20px;
+                border: 2px solid green; 
+                text-align:center; 
+                background-color:white;
+                color:#003399;
+            } 
+             td { 
+                padding: 12px; 
+                background-color:none; 
+            } 
+            th{
+            	padding:12px;
+            	background-color:#660033;
+            	color:white;
+            	font-weight:bold;
+            }
+
+</style>
 </html>

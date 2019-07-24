@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
- <%@page import="java.sql.*,com.hit.dao.BidderDao,com.hit.dao.BidderDaoImpl, java.lang.Integer,com.hit.beans.BidderBean,com.hit.utility.DBUtil,java.util.List,java.util.ArrayList,com.hit.dao.TenderDaoImpl,com.hit.dao.TenderDao, javax.servlet.annotation.WebServlet" errorPage="errorpage.jsp"%>
+ <%@page import="java.sql.*, java.lang.Integer,com.hit.beans.VendorBean,com.hit.utility.DBUtil,java.util.List,java.util.ArrayList,com.hit.dao.VendorDaoImpl,com.hit.dao.VendorDao, javax.servlet.annotation.WebServlet" errorPage="errorpage.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
   <head>
@@ -49,15 +49,30 @@
     	color:black;
     } 
     textarea:hover{
-    	background-color:#DEBEE1;
+    	background-color:#ADBFAF;
     	color:black;
     }
-    button:hover{
-    	background-color:red;
+    .button:hover{
+    	background-color:green;
     	color:white;
     	font-size:bold;
     }
-    #bt1:hover{
+    #show{
+    	
+    	text-align:center;
+    	border-radius:10px;
+		border:1px red solid;
+		text-align:center;
+		background-color: cyan;
+		margin:20px;
+		color:black;
+		font-style:normal;
+		font-size: 15.5px;
+		padding:12px;
+		
+    
+    }
+    button:hover{
     
     	background-color:green;
     	color:white;
@@ -72,7 +87,7 @@
 		String uname = (String)session.getAttribute("username");
 		String pword = (String)session.getAttribute("password");
 		
-		if(!user.equalsIgnoreCase("admin") || uname.equals("") || pword.equals("")){
+		if(user==null || !user.equalsIgnoreCase("admin") || uname.equals("") || pword.equals("")){
 			
 			response.sendRedirect("loginFailed.jsp");
 			
@@ -114,56 +129,41 @@
         &nbsp; <span id="pagetitle">Admin Account</span></h4>pagetitle id is given here
         <div class="marquee-content" style="align:center; padding-top:200px;min-height:750px;background-color:cyan">
      		 -->
+     		 <div id="show">
      		 
-     <table style="border-radius:10px" >
-			<tr >
-				<td id="show" style="min-width:1000px;background-color:white;min-height:0px;color:red">Tender Bids For TendorId: <%=request.getParameter("tid") %></td>
-			</tr>
-	</table>
-				 
+     		 	 These are the Vendors Currently Registered With Us
+     		 	 
+     		 </div>
      		 
-     <table style="background-color:white">		
+     		 
+     		 
+     		 
+     		 
+     <table style="background-color:white;">		
      		<tr style="color:white; font-size:22px; font-weight:bold;background-color:#660033">
-     		 <td>Bidder Id</td> <td>Vendor Id </td> <td> Bid Amount</td> <td> Deadline </td>
-     		 		<td>Status</td><td>Accept</td><td>Reject</td></tr>
+     		 <td>Vendor Id</td> <td>Vendor Name </td> <td> Mobile </td> <td>Email</td> <td>Company</td> <td>Address</td></tr>
      		<%
-     				
-     			BidderDao dao = new BidderDaoImpl();
-     			
-     			List<BidderBean> bidderList = dao.getAllBidsOfaTender(request.getParameter("tid"));
-     			boolean isPending = false;
-     			for(BidderBean bidder: bidderList){
-     				
-     				isPending = false;
-     				
-     				String status = bidder.getBidStatus();
-     				
-     				if(status.equalsIgnoreCase("pending"))
-     					isPending = true;
+     			VendorDao dao = new VendorDaoImpl();
+     			List<VendorBean> vendorList = dao.getAllVendors();
+     			for(VendorBean vendor : vendorList){
      				
      				%>
      				
-     
-     		<tr> <td><%=bidder.getBidId() %></td> <td><a href="adminViewVendorDetail.jsp?vid=<%=bidder.getVendorId() %>"><%=bidder.getVendorId() %></a></td> <td><%=bidder.getBidAmount() %></td>
-     		 <td><%=bidder.getBidDeadline() %></td> <td><%=bidder.getBidStatus()%></td>      		 	
-     		 	
-     		 	<% if(isPending){ %>
-     		 	
-     		 	<td><a href="AcceptBidSrv?bid=<%= bidder.getBidId()%>&tid=<%=bidder.getTenderId()%>&vid=<%= bidder.getVendorId()%>"><button id="bt1">Accept</button></a></td>
-     		 	<td><a href="RejectBidSrv?bid=<%= bidder.getBidId()%>&tid=<%=bidder.getTenderId()%>&vid=<%= bidder.getVendorId()%>"><button >Reject</button></a></td>
      			
-				<% }else{  %>
-					     		
-     				<td style="color:red;"><%=status %></td>
-     				<td style="color:red;"><%=status %></td>
-     			<%} %>
-     		 </tr>
-     		
-     		
-     
+     		<tr> <td><a href="adminViewVendorDetail.jsp?vid=<%=vendor.getId() %>"><%= vendor.getId() %></a> </td>  <td><%= vendor.getName() %> </td>  <td><%= vendor.getMobile() %> </td>
+     		  <td><%= vendor.getEmail() %> </td>   <td><%= vendor.getCompany() %> </td>  
+     		  	<td><textarea readonly><%= vendor.getAddress() %> </textarea></td> </tr>
+ 
  <% } %>
+
     </table>	
-     		
+   
+   
+   
+   
+   
+   
+   
       <!-- </div>
      </div> -->
      </div>

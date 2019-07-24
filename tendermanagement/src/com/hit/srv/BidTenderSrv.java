@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.hit.dao.BidderDao;
 import com.hit.dao.BidderDaoImpl;
@@ -39,6 +40,18 @@ public class BidTenderSrv extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		HttpSession session = request.getSession();
+		String user = (String)session.getAttribute("user");
+		String uname = (String)session.getAttribute("username");
+		String pword = (String)session.getAttribute("password");
+		
+		if(user==null || !user.equalsIgnoreCase("user") || uname.equals("") || pword.equals("")){
+			
+			response.sendRedirect("loginFailed.jsp");
+			
+		}
+		
 		
 		String bidAmount = request.getParameter("bidamount");
 		String bidDeadline = request.getParameter("biddeadline");

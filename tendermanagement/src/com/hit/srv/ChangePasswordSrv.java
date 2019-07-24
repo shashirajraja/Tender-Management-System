@@ -42,6 +42,18 @@ public class ChangePasswordSrv extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		HttpSession session = request.getSession();
+		String user = (String)session.getAttribute("user");
+		String uname = (String)session.getAttribute("username");
+		String pword = (String)session.getAttribute("password");
+		
+		if(user==null || !user.equalsIgnoreCase("user") || uname.equals("") || pword.equals("")){
+			
+			response.sendRedirect("loginFailed.jsp");
+			
+		}
+		
+		
 		String fvid = request.getParameter("vid");
 		String foldPass = request.getParameter("oldpassword");
 		String newPass = request.getParameter("newpassword");
@@ -51,7 +63,7 @@ public class ChangePasswordSrv extends HttpServlet {
 		
 		RequestDispatcher rd = request.getRequestDispatcher("updatePassword.jsp");
 		
-		HttpSession session = request.getSession();
+		//HttpSession session = request.getSession();
 		
 		VendorBean vendor = (VendorBean)session.getAttribute("vendordata");
 		

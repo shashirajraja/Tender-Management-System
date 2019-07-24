@@ -42,6 +42,17 @@ public class UpdateProfileSrv extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		HttpSession session = request.getSession();
+		String user = (String)session.getAttribute("user");
+		String uname = (String)session.getAttribute("username");
+		String pword = (String)session.getAttribute("password");
+		
+		if(user==null || !user.equalsIgnoreCase("user") || uname.equals("") || pword.equals("")){
+			
+			response.sendRedirect("loginFailed.jsp");
+			
+		}
+		
 		String vid = request.getParameter("vid");
 		String vname = request.getParameter("vname");
 		String vmob = request.getParameter("vmob");
@@ -55,7 +66,7 @@ public class UpdateProfileSrv extends HttpServlet {
 		
 		String status = dao.updateProfile(vendor);
 		
-		HttpSession session = request.getSession();
+	//	HttpSession session = request.getSession();
 		
 		if(status.equalsIgnoreCase("Account Updated Successfully!") && (VendorBean)session.getAttribute("vendordata")!=null){
 			session.setAttribute("vendordata", vendor);

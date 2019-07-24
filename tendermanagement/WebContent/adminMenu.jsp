@@ -24,6 +24,7 @@
                   <li><a href="vendorDetail.jsp">Vendor Detail</a></li>
                 </ul>
               </li> -->
+              <li><a href="adminViewVendor.jsp">Vendors</a></li>
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-animations="fadeIn fadeInLeft fadeInUp fadeInRight"> 
                 <!--Dropdown under tender category -->
@@ -33,7 +34,8 @@
                   <li><a href="viewTender.jsp">View all Tenders</a></li>
                   <li><a href="createTender.jsp">Create New Tender</a></li>
                   <li><a href="viewTenderBids.jsp">View Tender Bids</a></li>
-                  <li><a href="#">Accept a bid</a></li>
+                  <li><a href="viewTenderBids.jsp">Accept a bid</a></li>
+                  <li><a href="viewAssignedTenders.jsp">View Assigned Tenders</a></li>
                   </ul>
              </li>
              
@@ -57,7 +59,7 @@
               <!-- Form for searching any tenders or items-->
               <form class="navbar-form hidden-xs" action="searchTender.jsp"  >
                 <div class="form-group" >
-                  <input type="text" name="tid" class="form-control" placeholder="Find Tenders by name or tenderId" style="margin-left:150px;" required>
+                  <input type="text" name="tid" class="form-control" placeholder="Find Tenders by name or tenderId" style="margin-left:10px;" required>
                 </div>
                
                 <button type="submit" class="btn btn-primary" >Search</button>

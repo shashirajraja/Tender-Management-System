@@ -10,6 +10,7 @@ import java.util.List;
 
 import com.hit.beans.BidderBean;
 import com.hit.beans.TenderBean;
+import com.hit.beans.TenderStatusBean;
 import com.hit.utility.DBUtil;
 import com.hit.utility.IDUtil;
 
@@ -375,6 +376,47 @@ boolean flag=false;
 		
 		
 		return status;
+	}
+
+	@Override
+	public List<TenderStatusBean> getAllAssignedTenders() {
+		List<TenderStatusBean> statusList = new ArrayList<TenderStatusBean>();
+		
+		Connection con = DBUtil.provideConnection();
+		
+		PreparedStatement ps  = null;
+		
+		ResultSet rs = null;
+		
+		try {
+		
+			ps = con.prepareStatement("select * from tenderstatus");
+		
+			rs = ps.executeQuery();
+			
+			while(rs.next()){
+				
+				TenderStatusBean status = new TenderStatusBean(rs.getString("tid"),rs.getString("bid"),rs.getString("status"),rs.getString("vid"));
+				
+				statusList.add(status);
+			}
+		
+		} catch (SQLException e) {
+		
+			e.printStackTrace();
+		}
+		
+		finally{
+			
+			DBUtil.closeConnection(con);
+			
+			DBUtil.closeConnection(ps);
+			
+			DBUtil.closeConnection(rs);
+			
+		}
+		
+		return statusList;
 	}
 
 }

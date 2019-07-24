@@ -3,6 +3,7 @@ package com.hit.dao;
 import java.util.List;
 
 import com.hit.beans.TenderBean;
+import com.hit.beans.TenderStatusBean;
 
 public interface TenderDao {
 	
@@ -21,5 +22,7 @@ public interface TenderDao {
 	public String getTenderStatus(String tenderId);
 	
 	public String assignTender(String tenderId,String vendorId,String bidderId);
+	
+	public List<TenderStatusBean> getAllAssignedTenders();
 	
 }
