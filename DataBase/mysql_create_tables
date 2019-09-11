@@ -1,5 +1,6 @@
-#Create this file table only if you don't want to import the database file given in other folder
+#Create this table only if you don't want to import the database file given in other folder or if you want an empty table
 #Just Copy and Paste the below command in mysql to create the following tables
+#NOTE:- The table created here is empty , i.e no dummy data is available.
 
 create database tender;
 
@@ -23,9 +24,3 @@ create table bidder (bid varchar(15) primary key,vid varchar(15) references vend
 
 create table tenderstatus(tid varchar(15) primary key references tender(tid),bid varchar(15) references bidder(bid),
 		status varchar(15) not null,vid varchar(15) references vendor(vid));
-
-
-
-
-
-
