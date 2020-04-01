@@ -1,2 +1,0 @@
-- Download the file attatched in this folder to view the powerpoint presentation of this project.
-- To download the Presentation file <a href="https://github.com/shashirajraja/Tender-Management-System/blob/master/Presentation/Tender_Management_System.ppsx">Click Here</a>.
