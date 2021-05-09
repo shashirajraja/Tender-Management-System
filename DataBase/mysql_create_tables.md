@@ -3,7 +3,8 @@
 - If You want to Create an empty table structure for this project, without any dummy database.
 - If you don't want to execute the dummy database given <a href="https://github.com/shashirajraja/Tender-Management-System/blob/master/DataBase/tender.sql"/>Here inside DataBase/mysql_create_tables</a>
 #### STEP 1: Login to administrator user opening MySQL Command Prompt or open cmd and execute the following: 
-```mysql -u <username> -p <password>```
+```mysql -u <username> -p ``` (Enter the password when asked)
+
 #### STEP 2: Copy Paste and execute the following Queries:
 
 ```MySQL
