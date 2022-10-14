@@ -1,6 +1,8 @@
 <a href="http://ec2-13-233-71-174.ap-south-1.compute.amazonaws.com:8080/tendermanagement/" alt="Tender Management System Java Project" target="_blank">**Tender Management System**</a><br><br>
 You can see the demo of this website at <a href="https://tendermanagement.herokuapp.com"><span>https://tendermanagement.herokuapp.com<span></a>
-
+### Login Credentials:
+	User Login: shashi@gmail.com/shashi
+	Admin Login: Admin/Admin
 Whenever a company  requires a service / merchandise , a tender is floated. Company maintains an empaneled list of Vendors. An empaneled vendor can only bid for a tender. Every vendor can bid only once against   each tender. Against each tender there may be   bids from several vendors. The company will then select the most suitable bid and places the order to that vendor.
 <!--
 **Note: This Website is LIVE now <a href="http://ec2-13-233-71-174.ap-south-1.compute.amazonaws.com:8080/tendermanagement/" alt="Tender Management System Java Project" target="_blank">Click Here</a> to visit the live website.
