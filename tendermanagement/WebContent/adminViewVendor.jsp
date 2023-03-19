@@ -27,7 +27,7 @@
     }
    
     td{
-    	min-width:145px;
+    	min-width:105px;
     	border: 2px dashed black;
     }
  table{
@@ -64,11 +64,13 @@
 		border:1px red solid;
 		text-align:center;
 		background-color: cyan;
-		margin:20px;
+		margin:10px;
+		margin-left:40px;
 		color:black;
 		font-style:normal;
 		font-size: 15.5px;
 		padding:12px;
+		width:100%;
 		
     
     }
