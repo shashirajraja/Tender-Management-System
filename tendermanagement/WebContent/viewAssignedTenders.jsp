@@ -102,13 +102,13 @@
     
      <table style="border-radius:10px" >
 			<tr >
-				<td id="show" style="min-width:1000px;background-color:white;min-height:0px;color:red">All Assigned Tenders List</td>
+				<td id="show" style="min-width:850px;background-color:white;min-height:0px;color:red">All Assigned Tenders List</td>
 			</tr>
 	</table>
     
     
      <table style="background-color:white; margin-left:30%;">		
-     		<tr style="color:white; font-size:22px; font-weight:bold;background-color:brown"> <td>Tender Id</td> <td>Vendor Id </td> 
+     		<tr style="color:white; font-size:18px; font-weight:bold;background-color:brown"> <td>Tender Id</td> <td>Vendor Id </td> 
      			<td> Application Id </td> <td>Status</td> </tr>
      		<%
      			TenderDao dao = new TenderDaoImpl();

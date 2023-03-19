@@ -27,7 +27,7 @@
     }
    
     td{
-    	min-width:145px;
+    	min-width:90px;
     	border: 2px dashed black;
     }
  table{
@@ -65,6 +65,7 @@
 		text-align:center;
 		background-color: cyan;
 		margin:20px;
+		margin-left:40px;
 		color:black;
 		font-style:normal;
 		font-size: 15.5px;
@@ -140,8 +141,8 @@
      		 
      		 
      <table style="background-color:white">		
-     		<tr style="color:white; font-size:22px; font-weight:bold;background-color:#660033">
-     		 <td>Notice Id</td> <td>Title </td> <td> Description</td> <td>Update ? </td></tr>
+     		<tr style="color:white; font-size:18px; font-weight:bold;background-color:#660033">
+     		 <td>Notice Id</td> <td>Title </td> <td> Description</td> <td>Action </td></tr>
      		<%
      			NoticeDao dao = new NoticeDaoImpl();
      			List<NoticeBean> noticeList = dao.viewAllNotice();
@@ -159,7 +160,7 @@
      			
      		<tr> <td><%= noticeId %> </td> <td style="width:120%;"><textarea name="title" readonly><%=noticeTitle %></textarea></td> 
      				<td><textarea name="info" cols="60" readonly><%=noticeDesc %></textarea></td>
-     							 <td><a href="updateNoticeForm.jsp?nid=<%=noticeId%>"><button>Update</button></a></td> </tr>
+     							 <td><a href="updateNoticeForm.jsp?nid=<%=noticeId%>"><button class="btn btn-success">Update</button></a></td> </tr>
  
  <% } %>
 

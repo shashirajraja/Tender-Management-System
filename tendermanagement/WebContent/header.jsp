@@ -23,7 +23,7 @@
 <body>
        <nav class="navbar navbar-inverse" > <!-- Navigation Bar-->
         <div class="container" >
-            <div class="navbar-header"> <!-- Header navigation-->
+            <div class="navbar-header my-1"> <!-- Header navigation-->
                 <a href="#" class="pull-left">
                     <img src="images/hit1.jpg" alt="HIT Haldia" width="70px" height="70px"/>
                 </a>
@@ -35,7 +35,8 @@
               <li><a href="viewProfile.jsp"><span class="glyphicon glyphicon-user "></span>Profile</a></li>
               <li><a href="LogoutSrv"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
             </ul>
-            <!--Coding for Small Devices navigation-->
+         
+        <!--Coding for Small Devices navigation-->
         <div class="navbar-header pull-left hidden-lg hidden-md">
           <button id="navbarToggle" type="button" class="btn btn-primary navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsable-nav" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span> <!-- Only used by screen readers-->
