@@ -1,6 +1,5 @@
 <a href="http://ec2-13-233-71-174.ap-south-1.compute.amazonaws.com:8080/tendermanagement/" alt="Tender Management System Java Project" target="_blank">**Tender Management System**</a><br><br>
-- Youtube Video for local setup of similar project: https://www.youtube.com/watch?v=mLFPodZO8Iw&t=8s
-- You can see the demo of this website at <a href="https://tendermanagement.herokuapp.com"><span>https://tendermanagement.herokuapp.com<span></a>
+- Youtube <bold>Video</bold> for local setup of this project: https://www.youtube.com/watch?v=7CE3aY4e644
 ### Login Credentials:
 	User Login: shashi@gmail.com/shashi
 	Admin Login: Admin/Admin
