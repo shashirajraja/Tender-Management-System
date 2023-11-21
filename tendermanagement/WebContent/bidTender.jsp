@@ -6,13 +6,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
-<link rel="shortcut icon" type="image/png" href="images/Banner_Hit.png">
+<link rel="shortcut icon" type="image/png" href="images/Reway_logo.jpeg">
 <!--link rel="shortcut icon" type="image/ico" href="images/hit_fevicon.ico"-->
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tender Management System</title>
+<title>E-marketplace</title>
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/annimate.css">
 <link href="css/font-awesome.min.css" type="text/css" rel="stylesheet">
@@ -79,8 +79,8 @@ button:hover {
 	<jsp:include page="vendorMenu.jsp"></jsp:include>
 
 	<div class="clearfix hidden-sm hidden-xs"
-		style="color: white; background-color: green; margin-top: -15px; margin-bottom: 12px">
-		<marquee>Welcome to Tender Management Site</marquee>
+		style="color: white; background-color:#008036; margin-top: -15px; margin-bottom: 12px">
+		<marquee>Welcome to Reway's E-marketplace</marquee>
 	</div>
 	<!--A green color line between header and body part-->
 
@@ -110,7 +110,7 @@ button:hover {
      		 --> --%>
 		<table class="table table-hover table-stripped bg-danger">
 			<tr
-				style="color: white; font-size:16px; font-weight: bold; background-color: green">
+				style="color: white; font-size:16px; font-weight: bold; background-color: #008036">
 				<td>Tender Id</td>
 				<td>Tender Name</td>
 				<td>Type</td>
