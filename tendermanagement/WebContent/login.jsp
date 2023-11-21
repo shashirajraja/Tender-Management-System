@@ -93,7 +93,7 @@
 				<br>
 					Username: &nbsp; <input type="text" placeholder="Enter Email " name="username" required="required" style="color:black;font-size:19px;"><br/><br/>
 					Password: &nbsp; <input type="password" name="password" required="required" style="color:black;font-size:19px;"><br/><br/>
-					<input type="submit" value="Login As recycler" placeholder="Login As recycler" name="user">&nbsp; &nbsp; &nbsp; &nbsp;
+					<input type="submit" value="Login As vendor" placeholder="Login As vendor" name="user">&nbsp; &nbsp; &nbsp; &nbsp;
 					<input type="submit" value="Login As Admin" name="user"><br/><br/>
 				</form>
 			</td>
