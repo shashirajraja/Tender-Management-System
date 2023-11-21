@@ -4,13 +4,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
   <head>
-    <link rel="shortcut icon" type="image/png" href="images/Banner_Hit.png">
+    <link rel="shortcut icon" type="image/png" href="images/Reway_logo.jpeg">
     <!--link rel="shortcut icon" type="image/ico" href="images/hit_fevicon.ico"-->
 	
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tender Management System</title>
+    <title>E-marketplace</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/annimate.css">
     <link href="css/font-awesome.min.css" type="text/css" rel="stylesheet">
@@ -41,7 +41,7 @@
 	
 	<jsp:include page="vendorMenu.jsp"></jsp:include>
 	
-	<div class="clearfix hidden-sm hidden-xs" style="color:white;background-color: green; margin-top:-15px; margin-bottom: 12px"><marquee>Welcome to Tender Management Site</marquee>
+	<div class="clearfix hidden-sm hidden-xs" style="color:white;background-color: green; margin-top:-15px; margin-bottom: 12px"><marquee>Welcome to Reway's E-marketplace</marquee>
  </div> <!--A green color line between header and body part-->
  
      <div class="container-fluid">
@@ -64,13 +64,11 @@
           
    <div class="col-md-8">
     <div class="marquee" style="border:2px black hidden; background-color:white">
-        <h4 style="background-color:black; margin-top:-1.8px; margin-bottom:1px;padding: 5px; text-align: center;color:red;font-weight:bold">
-        &nbsp; <span id="pagetitle">VENDOR ACCOUNT</span></h4><!-- pagetitle id is given here -->
-        <div class="marquee-content" style="align:center; padding-top:200px;min-height:750px;background-color:cyan">
-     		<h1><center>Hey Dude! Welcome to Our Tender Management system</center></h1>
-     		<h2><center>Here You can manage your tenders,view tenders and bid for tenders according to their deadline and base price</center></h2>
-     		<h3><center>Go on the about menu section links to explore the site</center></h3>
-     		<h3><center>You can also update your profile, change password and can explore many more things!</center></h3>
+        <h4 style="background-color:black; margin-top:-1.8px; margin-bottom:1px;padding: 5px; text-align: center;color:white;font-weight:bold">
+        &nbsp; <span id="pagetitle">RECYCLER ACCOUNT</span></h4><!-- pagetitle id is given here -->
+        <div class="marquee-content" style="align:center; padding-top:200px;min-height:750px;background-color:#008036; color:white">
+     	<h1><center>Welcome to Reway's E-Marketplace for Recycling Solutions.</center></h1>
+        <h2><center>Manage, view, and bid on recycling projects.</center></h2>
      
       </div>
      </div>
