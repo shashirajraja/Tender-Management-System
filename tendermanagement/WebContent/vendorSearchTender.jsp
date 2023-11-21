@@ -4,13 +4,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
   <head>
-    <link rel="shortcut icon" type="image/png" href="images/Banner_Hit.png">
+    <link rel="shortcut icon" type="image/png" href="images/Reway_logo.jpeg">
     <!--link rel="shortcut icon" type="image/ico" href="images/hit_fevicon.ico"-->
 	
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tender Management System</title>
+    <title>E-marketplace</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/annimate.css">
     <link href="css/font-awesome.min.css" type="text/css" rel="stylesheet">
@@ -20,33 +20,41 @@
     <link href="css/bootstrap-dropdownhover.min.css">
     <link rel="stylesheet" href="css/style2.css">
     <style>
-    th,tr{
-    	height:50px;
-    	border:2px black solid;
-    	
+    th, td {
+        border: 2px solid black;
+        padding: 8px;
     }
-   
-    td{
-    	min-width:145px;
-    	border: 2px dashed black;
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 800px; /* Optional: Set a maximum width for the table */
+        margin: 20px auto;
+        text-align: center;
+        background-color: cyan;
+        color: blue;
+        font-style: normal;
+        font-size: 15px;
+        border: 1px red solid;
     }
-    table{
-    	text-align:center;
-    	border-radius:10px;
-		border:1px red solid;
-		text-align:center;
-		background-color: cyan;
-		margin:20px;
-		color:blue;
-		font-style:normal;
-		font-size: 15px;
-		padding:20px;
-		cellpadding:10;
-		cellspacing:10;
+
+    @media only screen and (max-width: 600px) {
+        th, td {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        th {
+            display: none; /* Hide table headers */
+        }
+
+        tr {
+            margin-bottom: 10px;
+            display: block;
+        }
     }
-    
-    
-    </style>
+   </style>
   </head>
 <body>
 
@@ -69,7 +77,7 @@
 	
 	<jsp:include page="vendorMenu.jsp"></jsp:include>
 	
-	<div class="clearfix hidden-sm hidden-xs" style="color:white;background-color: green; margin-top:-15px; margin-bottom: 12px"><marquee>Welcome to Tender Management Site</marquee>
+	<div class="clearfix hidden-sm hidden-xs" style="color:white;background-color:#008036; margin-top:-15px; margin-bottom: 12px"><marquee>Welcome to Reway's E-marketplace</marquee>
  </div> <!--A green color line between header and body part-->
  
      <div class="container-fluid">
@@ -97,7 +105,7 @@
         <div class="marquee-content" style="align:center; padding-top:200px;min-height:750px;background-color:cyan">
      		 -->
      <table style="background-color:white">		
-     		<tr style="color:red; font-size:22px; font-weight:bold;background-color:green"> <td>Tender Id</td> <td>Tender Name </td> <td> Tender Type </td> <td>Tender Price</td> <td>Location</td> <td>Deadline</td> <td>Description</td> </tr>
+     		<tr style="color:white; font-size:15px; font-weight:bold;background-color:#008036"> <td>Tender Id</td> <td>Tender Name </td> <td> Tender Type </td> <td>Tender Price</td> <td>Location</td> <td>Deadline</td> <td>Description</td> </tr>
      		<%
      			TenderDao dao = new TenderDaoImpl();
      			List<TenderBean> tenderList = dao.getTenderDetails(request.getParameter("tid"));
