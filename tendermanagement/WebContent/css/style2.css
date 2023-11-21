@@ -25,6 +25,9 @@ body {
 	font-family: 'Black Ops One';
 }
 
+.navbar-inverse .navbar-nav>li>a {
+    color: white;
+}
 .secondnav {
 	margin-top: -19.1px;
 }
@@ -48,7 +51,7 @@ body {
 }
 
 #nav-list a {
-	color: #951C49;
+	color: #181919;
 }
 
 .dropdown-menu li a {

@@ -4,13 +4,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
   <head>
-    <link rel="shortcut icon" type="image/png" href="images/Banner_Hit.png">
+    <link rel="shortcut icon" type="image/png" href="images/Reway_logo.jpeg">
     <!--link rel="shortcut icon" type="image/ico" href="images/hit_fevicon.ico"-->
 	
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tender Management System</title>
+    <title>E-marketplace</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/annimate.css">
     <link href="css/font-awesome.min.css" type="text/css" rel="stylesheet">
@@ -44,7 +44,7 @@
 	
 	<jsp:include page="vendorMenu.jsp"></jsp:include>
 	
-	<div class="clearfix hidden-sm hidden-xs" style="color:white;background-color: green; margin-top:-15px; margin-bottom: 12px"><marquee>Welcome to Tender Management Site</marquee>
+	<div class="clearfix hidden-sm hidden-xs" style="color:white;background-color: #008036; margin-top:-15px; margin-bottom: 12px"><marquee>Welcome to Reway's E-marketplace</marquee>
  </div> <!--A green color line between header and body part-->
  
      <div class="container-fluid">
@@ -74,7 +74,7 @@
 
      	<table style="border-radius:10px" >
 			<tr >
-				<td id="show" style="min-width:700px;min-height:0px;color:blue">Edit Details And Click on Update</td>
+				<td id="show" style="min-width:645px;min-height:0px;color:blue">Edit Details And Click on Update</td>
 			</tr>
 		</table>
             
@@ -87,11 +87,11 @@
 	<form action="ChangePasswordSrv" method="post">
 		<table style="background-color:white">
 			<th colspan="2">Change Password<input type="hidden" name="vid" value="<%=vendor.getId() %>"></th>
-			<tr><td style="color:red">	Enter Old Password: </td><td> <input type="password" name="oldpassword" required="required"></td></tr>					
+			<tr><td style="color:black">Enter old password:</td><td> <input type="password" name="oldpassword" required="required"></td></tr>					
 			
-			<tr><td style="color:red">	Enter New Password: </td><td> <input type="password" name="newpassword" required="required"></td></tr>					
+			<tr><td style="color:black">Enter new password:</td><td> <input type="password" name="newpassword" required="required"></td></tr>					
 			
-			<tr><td style="color:red">	Re-Enter New Password: </td><td> <input type="password" name="verifynewpassword" required="required"></td></tr>					
+			<tr><td style="color:black">Re-enter new password:</td><td> <input type="password" name="verifynewpassword" required="required"></td></tr>					
 			<tr><td colspan="2" align="center"><input type="submit" value="Change Password"></td></tr>
 			
 		</table>
@@ -123,17 +123,19 @@
     	min-width:450px;
     	font-size:16px;
     	background-color:#f8f8f8;
+    	border: 1px solid green;
     }
     input:hover,textarea:hover,select:hover{
     	min-width:450px;
     	background-color:white;
     }
 	table, th, td { 
+	            
 				margin-bottom:10px;
-				margin-left:20%;
-				font-size:20px;
+				margin-left:15%;
+				font-size:18px;
                 border: 2px solid green; 
-                text-align:center; 
+                text-align:left; 
                 background-color:white;
                 color:#003399;
             } 
@@ -143,7 +145,7 @@
             } 
             th{
             	padding:12px;
-            	background-color:#660033;
+            	background-color:#008036;
             	color:white;
             	font-weight:bold;
             }

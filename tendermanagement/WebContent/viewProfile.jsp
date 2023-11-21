@@ -4,13 +4,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
   <head>
-    <link rel="shortcut icon" type="image/png" href="images/Banner_Hit.png">
+    <link rel="shortcut icon" type="image/png" href="images/Reway_logo.jpeg">
     <!--link rel="shortcut icon" type="image/ico" href="images/hit_fevicon.ico"-->
 	
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tender Management System</title>
+    <title>E-marketplace</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/annimate.css">
     <link href="css/font-awesome.min.css" type="text/css" rel="stylesheet">
@@ -44,7 +44,7 @@
 	
 	<jsp:include page="vendorMenu.jsp"></jsp:include>
 	
-	<div class="clearfix hidden-sm hidden-xs" style="color:white;background-color: green; margin-top:-15px; margin-bottom: 12px"><marquee>Welcome to Tender Management Site</marquee>
+	<div class="clearfix hidden-sm hidden-xs" style="color:white;background-color: #008036; margin-top:-15px; margin-bottom: 12px"><marquee>Welcome to Reway's E-marketplace.</marquee>
  </div> <!--A green color line between header and body part-->
  
      <div class="container-fluid">
@@ -87,13 +87,13 @@
 	
 		<table style="background-color:white">
 			<th colspan="2">User Profile</th>
-			<tr><td style="color:red">	Vendor Id  : </td><td><%= vendor.getId()%></td></tr>
-			<tr><td style="color:red">    Vendor Name: </td><td><%= vendor.getName()%></td></tr>
-		   <tr><td style="color:red">	Mobile No.    :</td><td> <%= vendor.getMobile()%></td></tr>
-	       <tr><td style="color:red"> Email Id :</td><td> <%= vendor.getEmail()%></td></tr>
-		   <tr><td style="color:red">	Address  : </td><td><textarea rows="2" cols="40" style="font-size:15px" name="vaddr" readonly><%=vendor.getAddress() %> </textarea></td></tr>
-		   <tr><td style="color:red">	Company Name : </td><td> <%= vendor.getCompany()%></td></tr>
-			<tr><td style="color:red" colspan="2" align="center" value="Launch"><a href="updateProfile.jsp" style="color:green">Click Here To Update Profile</a></td></tr>
+			<tr><td style="color:Black">Vendor Id </td><td><%= vendor.getId()%></td></tr>
+			<tr><td style="color:Black">Vendor Name </td><td><%= vendor.getName()%></td></tr>
+		   <tr><td style="color:Black">	Mobile</td><td> <%= vendor.getMobile()%></td></tr>
+	       <tr><td style="color:Black"> Email Id</td><td> <%= vendor.getEmail()%></td></tr>
+		   <tr><td style="color:Black">	Address</td><td><textarea rows="2" cols="40" style="font-size:15px" name="vaddr" readonly><%=vendor.getAddress() %> </textarea></td></tr>
+		   <tr><td style="color:Black">	Company Name</td><td> <%= vendor.getCompany()%></td></tr>
+			<tr><td style="color:Black" colspan="2" align="left" value="Launch"><a href="updateProfile.jsp" style="color:green">click here to update profile</a></td></tr>
 			
 		</table>
 	
@@ -122,8 +122,9 @@
 <style>
     input,textarea,select{
     	min-width:450px;
-    	font-size:16px;
+    	font-size:15px;
     	background-color:#f8f8f8;
+    	border: 1px solid green;
     }
     input:hover,textarea:hover,select:hover{
     	min-width:450px;
@@ -131,10 +132,10 @@
     }
 	table, th, td { 
 				margin-bottom:10px;
-				margin-left:20%;
-				font-size:20px;
+				margin-left:15%;
+				font-size:18px;
                 border: 2px solid green; 
-                text-align:center; 
+                text-align:left; 
                 background-color:white;
                 color:#003399;
             } 
@@ -143,8 +144,8 @@
                 background-color:none; 
             } 
             th{
-            	padding:12px;
-            	background-color:#660033;
+            	padding:15px;
+            	background-color:#008036;
             	color:white;
             	font-weight:bold;
             }

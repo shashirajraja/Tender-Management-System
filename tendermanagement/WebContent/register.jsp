@@ -4,13 +4,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
   <head>
-    <link rel="shortcut icon" type="image/png" href="images/Banner_Hit.png">
+    <link rel="shortcut icon" type="image/png" href="images/Reway_logo.jpeg">
     <!--link rel="shortcut icon" type="image/ico" href="images/hit_fevicon.ico"-->
 	
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tender Management System</title>
+    <title>E-marketplace</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/annimate.css">
     <link href="css/font-awesome.min.css" type="text/css" rel="stylesheet">
@@ -44,7 +44,7 @@
 	
 	<jsp:include page="menu.jsp"></jsp:include>
 	
-	<div class="clearfix hidden-sm hidden-xs" style="color:white;background-color: green; margin-top:-15px; margin-bottom: 12px"><marquee>Welcome to Tender Management Site</marquee>
+	<div class="clearfix hidden-sm hidden-xs" style="color:white;background-color: green; margin-top:-15px; margin-bottom: 12px"><marquee>Welcome to Reway's E-marketplace</marquee>
  </div> <!--A green color line between header and body part-->
  
      <div class="container-fluid">
@@ -67,9 +67,9 @@
       
    <div class="col-md-8">
     <div class="marquee" style="border:2px black hidden; background-color:white">
-        <h4 style="background-color:black; margin-top:-1.8px; margin-bottom:1px;padding: 5px; text-align: center;color:red;font-weight:bold">
-        &nbsp; <span id="pagetitle">Vendor Registration</span></h4><!-- pagetitle id is given here -->
-        <div  class="marquee-content" style="align:center; padding-top:5px;min-height:750px;background-color:cyan">
+        <h4 style="background-color:black; margin-top:-1.8px; margin-bottom:1px;padding: 5px; text-align: center;color:white;font-weight:bold">
+        &nbsp; <span id="pagetitle">Recycler Registration</span></h4><!-- pagetitle id is given here -->
+        <div  class="marquee-content" style="align:center; padding-top:5px;min-height:750px;background-color:#008036">
       
       <table class="tab hd " style="color:blue;margin-bottom:50px;background-color:white; ">
 	
@@ -81,7 +81,7 @@
       
       <table class="tab hd brown">
 		<tr>
-			<td style="color:brown">Register New Vendor</td>
+			<td style="color:brown">Register New Recycler</td>
 		</tr>
 	</table>
 
@@ -91,12 +91,12 @@
 			<td>
 				<form action="RegisterSrv" method="post">
 				<br>
-					Vendor Name: <input type="text" name="vname" required="required"><br/><br/>
-					Email Id &nbsp; &nbsp; &nbsp; : <input type="email" name="vemail" required="required"><br/><br/>
-					Mobile No.&nbsp; &nbsp; : <input type="phone" name="vmob" required="required"><br/><br/>
-					Address: &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<input type="text" name="vaddr" required="required"><br/><br/>
-					Company &nbsp; &nbsp;&nbsp; : <input type="text" name="cname" required="required"><br/><br/>
-					Password: &nbsp; &nbsp;&nbsp; <input type="password" name="vpass" required="required"><br/><br/>
+					Full Name&nbsp;&nbsp;<input type="text" name="vname" required="required"><br/><br/>
+					Email Id&nbsp; &nbsp; &nbsp;<input type="email" name="vemail" required="required"><br/><br/>
+					Mobile No.&nbsp; &nbsp;<input type="phone" name="vmob" required="required"><br/><br/>
+					Address&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<input type="text" name="vaddr" required="required"><br/><br/>
+					Company&nbsp; &nbsp;&nbsp;<input type="text" name="cname" required="required"><br/><br/>
+					Password&nbsp; &nbsp;&nbsp;<input type="password" name="vpass" required="required"><br/><br/>
 					<input type="submit" value="Register" name="user">
 					
 				</form>

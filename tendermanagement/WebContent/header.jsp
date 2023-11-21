@@ -4,13 +4,13 @@
 <!-- For notice section go to line no 129 -->
 <html lang="en">
   <head>
-    <link rel="shortcut icon" type="image/png" href="images/Banner_Hit.png">
+    <link rel="shortcut icon" type="image/png" href="images/Reway_logo.jpeg">
     <!--link rel="shortcut icon" type="image/ico" href="images/hit_fevicon.ico"-->
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tender Management System</title>
+    <title>E-marketplace</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/annimate.css">
     <link href="css/font-awesome.min.css" type="text/css" rel="stylesheet">
@@ -21,14 +21,14 @@
     <link rel="stylesheet" href="css/style2.css">
   </head>
 <body>
-       <nav class="navbar navbar-inverse" > <!-- Navigation Bar-->
+       <nav class="navbar navbar-inverse" style = "background-color: #008036" > <!-- Navigation Bar-->
         <div class="container" >
             <div class="navbar-header my-1"> <!-- Header navigation-->
                 <a href="#" class="pull-left">
-                    <img src="images/hit1.jpg" alt="HIT Haldia" width="70px" height="70px"/>
+                    <img src="images/Reway_banner_logo.jpeg" alt="Reway Marketplace" width="70px" height="70px"/>
                 </a>
-                    <a class="navbar-brand" href="#"><h1>Tender Management System</h1></a> <!-- Library Name fixed-->
-                    <a href="#"><p> A HIT Haldia Project</p></a>
+                    <a class="navbar-brand" href="#"><h1>E-marketplace</h1></a> <!-- Library Name fixed-->
+                    <a href="#"><p></p></a>
             </div>
          
             <ul class="nav navbar-nav navbar-right menusize pull-right">   <!-- Login or signup in right top corner-->

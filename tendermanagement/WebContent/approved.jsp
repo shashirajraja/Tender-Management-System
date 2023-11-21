@@ -15,8 +15,7 @@
 		%>
 		<h4
 			style="background-color: #26b0b0; margin-top: -1.8px; padding: 5px;">
-			<i class="glyphicon glyphicon-volume-up"></i> &nbsp; Recently
-			Approved Tenders
+			<i class="glyphicon glyphicon-volume-up"></i> &nbsp; Assigned Tenders
 		</h4>
 		<div class="marquee-content"
 			style="padding: 10px; font-weight: bold; font-size: 1.1em">
