@@ -6,11 +6,11 @@
 <html>
 <head>
   <head>
-    <link rel="shortcut icon" type="image/png" href="images/Banner_Hit.png">
+    <link rel="shortcut icon" type="image/png" href="images/Reway_logo.jpeg>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tender Management System</title>
+    <title>E-marketplace</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/annimate.css">
     <link href="css/font-awesome.min.css" type="text/css" rel="stylesheet">
@@ -28,19 +28,15 @@
         &nbsp; <span id="pagetitle">Logout Successful!<br><br> <a href="login.jsp">Login Again To Continue</a> </span></h4><!-- pagetitle id is given here -->
       <div class="marquee-content" style="padding:1px;padding-top:0px; font-weight: bold; font-size: 1.1em">
       <!-- height="900" -->   
-      <marquee scrollamount=0 style="min-height:750px">
+      <marquee scrollamount=0 style="min-height:500px">
             <!--Attatching the photo to be slided in the home page-->
             <div class="slider">
               <div id="myCarousel" class="carousel slide" data-ride="carousel">
                 <!-- Wrapper for slides -->
                
                 <div class="carousel-inner" style="width:100%; height: 500px !important;">
-                    <div class="item active"> <img src="images/home1.jpg" style="width:100%; height: 500px"> </div>
-                    <div class="item active"> <img src="images/library1.png" style="width:100%; height: 500px"> </div>
-                    <div class="item"> <img src="images/cap.jpg" style="width:100%; height: 500px"> </div>
-                    <div class="item"> <img src="images/onwork.jpg" style="width:100%; height: 500px"> </div>
-                    <div class="item"> <img src="images/building.jpg" style="width:100%; height: 500px"> </div>
-                    <div class="item"> <img src="images/building2.jpg" style="width:100%; height: 500px"> </div>
+                    <div class="item active"> <img src="images/Our Process (consumer).png" style="width:100%; height: 500px"> </div>
+                    <div class="item"> <img src="images/Our Process (Recycler).png" style="width:100%; height: 500px"> </div>
                 </div>
 
                 <!-- Left and right controls -->
