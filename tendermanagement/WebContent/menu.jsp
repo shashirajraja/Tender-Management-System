@@ -6,6 +6,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
+<style>
+
+</style>
 <body>
 	  <div class="menubar secondnav " style="background-color:white;">
     <div id="menucontent" class="container secondnav">
@@ -47,12 +50,12 @@
                 </ul>
               </li>
             <li class="dropdown">              <!--Dropdown under Vendors Category -->
-                <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-animations="fadeIn fadeInLeft fadeInUp fadeInRight">Vendors
+                <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-animations="fadeIn fadeInLeft fadeInUp fadeInRight">Recyclers
                     <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="loginFailed.jsp">List of vendors</a></li>
+                  <li><a href="loginFailed.jsp">List of recyclers</a></li>
                   <li><a href="loginFailed.jsp">Approval Status</a></li>
-                  <li><a href="loginFailed.jsp">Search Vendor</a></li>
+                  <li><a href="loginFailed.jsp">Search recycler</a></li>
                 </ul>
               </li>
            
