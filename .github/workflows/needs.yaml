@@ -1,0 +1,41 @@
+
+name: needworkflow
+
+on:
+ workflow_dispatch:
+env:
+  worflowlevelvariable: srinu
+jobs:
+  need_jobpipline:
+   runs-on: ubuntu-24.04
+   env:
+     joblebelvariable: priya
+   steps:
+    - name: firststepjob
+      env:
+        stepenvjob: reamesh
+      run: echo "one or more job run based on this job $worflowlevelvariable $joblebelvariable or $stepenvjob"
+  second_job:
+   runs-on: ubuntu-24.04
+   needs: 
+   - need_jobpipline
+   steps:
+    - run: echo "rnn the second jon $worflowlevelvariable and $joblebelvariable or stepenvjob $stepenvjob"
+  thrid_job:
+    runs-on: ubuntu-24.04
+    needs:
+     - need_jobpipline
+     - second_job
+    steps:
+     - run: echo "print first and second based on thrid $worflowlevelvariable and $joblebelvariable or $stepenvjob"
+      
+  
+    
+    
+      
+   
+  
+  
+  
+
+   

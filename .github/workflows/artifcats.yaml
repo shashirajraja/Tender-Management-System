@@ -1,0 +1,33 @@
+name: Simple CI/CD
+
+on: 
+ push: 
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build
+        run: | 
+          cd tendermanagement
+          mvn clean package
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: app
+          path: target/*.jar
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: app
+
+      - name: Deploy
+        run: java -jar *.jar

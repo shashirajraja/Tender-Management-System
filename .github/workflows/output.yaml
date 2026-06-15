@@ -1,0 +1,36 @@
+name: build and output file
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - name: Generate version
+        id: version
+        run: |
+          VERSION="1.0.${{ github.run_number }}"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+      - name: print the env variable
+        run: 
+          echo "print the version $VERSION"
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run tests
+        run: |
+          echo "Testing version ${{ needs.build.outputs.version }}"
+          
+
+  deploy:
+    needs: [build, test]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy
+        run: |
+          echo "Deploying ${{ needs.build.outputs.version }}"

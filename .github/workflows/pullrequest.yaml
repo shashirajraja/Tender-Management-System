@@ -1,0 +1,17 @@
+name: pullrequest
+on:
+ push:
+   branches:
+     - srinivasulu762-patch-1
+ pull_request:
+   branches:
+     - master
+jobs:
+  printpullrequest:
+   runs-on: ubuntu-22.04
+   steps:
+     - name: print the all detials
+       run: |
+        echo "${{ github.repository_id }}
+        echo "${{ github.repository_owner }}
+        
