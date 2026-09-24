@@ -1,0 +1,27 @@
+services:
+  db:
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_DATABASE: tender
+      MYSQL_ROOT_PASSWORD: admin
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./DataBase/tender.sql:/docker-entrypoint-initdb.d/tender.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -uroot -padmin"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  app:
+    build:
+      context: .
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+
+volumes:
+  mysql_data:
