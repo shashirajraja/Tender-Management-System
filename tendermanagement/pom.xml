@@ -7,6 +7,7 @@
   <name>Tender Management System</name>
   <description>Web Application for Online Tender Management</description>
   <build>
+    <finalName>tendermanagement</finalName>
     <sourceDirectory>src</sourceDirectory>
     <resources>
       <resource>
